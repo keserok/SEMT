@@ -1,0 +1,13 @@
+{
+  "name": "semt-spatial-pwa",
+  "version": "1.0.0",
+  "description": "SEMT — Şehrin Görünmeyen Katmanları | Spatial Glass & Editorial Heritage Mobile PWA",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "build": "node build.mjs",
+    "deploy": "npx vercel --prod",
+    "deploy:preview": "npx vercel"
+  }
+}

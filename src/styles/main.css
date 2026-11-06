@@ -1,0 +1,824 @@
+/* ==========================================================================
+   SEMT v3.0 — AVANT-GARDE EDITORIAL & SPATIAL ARCHITECTURE
+   Inspired by A24, Cereal Magazine, Teenage Engineering & Apple Journal.
+   STRICT RULE: Zero oval pill badges around labels. Pure hairline grid & typography.
+   ========================================================================== */
+
+:root,
+[data-theme="obsidian"] {
+  --bg-canvas: #05070E;
+  --bg-elevated: #0B101D;
+  --bg-glass-heavy: rgba(9, 13, 24, 0.86);
+  --bg-glass-card: rgba(14, 20, 36, 0.72);
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #475569;
+
+  --accent: #F59E0B;
+  --accent-light: #FBBF24;
+  --accent-soft: rgba(245, 158, 11, 0.1);
+  --accent-glow: rgba(245, 158, 11, 0.25);
+  --accent-cyan: #38BDF8;
+  --accent-emerald: #10B981;
+
+  --line-hairline: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --line-accent: rgba(245, 158, 11, 0.45);
+
+  --blur-spatial: blur(30px) saturate(160%);
+}
+
+[data-theme="heritage"] {
+  --bg-canvas: #0C0907;
+  --bg-elevated: #15100C;
+  --bg-glass-heavy: rgba(20, 15, 11, 0.88);
+  --bg-glass-card: rgba(30, 22, 16, 0.76);
+
+  --text-primary: #F5EFE6;
+  --text-secondary: #B8AA96;
+  --text-muted: #6E6252;
+
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217, 119, 6, 0.12);
+  --accent-glow: rgba(217, 119, 6, 0.3);
+  --accent-cyan: #E11D48;
+  --accent-emerald: #10B981;
+
+  --line-hairline: rgba(245, 239, 230, 0.09);
+  --line-strong: rgba(245, 239, 230, 0.18);
+  --line-accent: rgba(245, 158, 11, 0.5);
+}
+
+:root {
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 860px;
+  background: #030408;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.studio-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 880px;
+  padding: 14px;
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.06), transparent 55%), #030408;
+}
+
+/* ==========================================================================
+   MOBILE FRAME (Pure, Gallery-Grade Viewport)
+   ========================================================================== */
+.phone-device {
+  position: relative;
+  width: 100%;
+  max-width: 408px;
+  height: 840px;
+  background: var(--bg-canvas);
+  border-radius: 42px;
+  border: 6px solid #141B29;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 32px 80px -16px rgba(0, 0, 0, 0.92);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Minimalist Editorial Header on Map */
+.floating-top-hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hud-interactive {
+  pointer-events: auto;
+}
+
+.editorial-district-trigger {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: var(--blur-spatial);
+  -webkit-backdrop-filter: var(--blur-spatial);
+  border: 1px solid var(--line-hairline);
+  border-radius: 14px;
+  padding: 9px 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.25s var(--ease-fluid), border-color 0.25s;
+}
+.editorial-district-trigger:hover {
+  border-color: var(--line-accent);
+}
+.editorial-district-trigger:active {
+  transform: scale(0.97);
+}
+
+.kicker-line {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kicker-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.district-main-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hud-right-tools {
+  display: flex;
+  gap: 6px;
+}
+
+.square-glass-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-glass-heavy);
+  backdrop-filter: var(--blur-spatial);
+  border: 1px solid var(--line-hairline);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s var(--ease-fluid);
+}
+.square-glass-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--line-strong);
+}
+.square-glass-btn.active {
+  color: var(--accent-light);
+  border-color: var(--line-accent);
+}
+
+/* Subtle Editorial Toast */
+.floating-toast {
+  position: absolute;
+  top: 82px;
+  left: 20px;
+  right: 20px;
+  z-index: 65;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--bg-glass-heavy);
+  backdrop-filter: var(--blur-spatial);
+  border-left: 2px solid var(--accent);
+  border-top: 1px solid var(--line-hairline);
+  border-right: 1px solid var(--line-hairline);
+  border-bottom: 1px solid var(--line-hairline);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-fluid), transform 0.28s var(--ease-fluid);
+}
+.floating-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SCREENS VIEWPORT
+   ========================================================================== */
+.screens-viewport {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-screen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.35s var(--ease-fluid), transform 0.35s var(--ease-fluid);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.app-screen::-webkit-scrollbar {
+  display: none;
+}
+.app-screen.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SCREEN 1: KEŞFET (Full-Bleed 3D Map + Editorial Stop Card)
+   ========================================================================== */
+.map-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#semt-map-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+#semt-map-canvas:active {
+  cursor: grabbing;
+}
+
+/* Editorial Floating Stop Card (Zero Oval Pills, Pure Magazine Typography) */
+.stop-floating-dock {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 80px;
+  z-index: 40;
+  background: var(--bg-glass-heavy);
+  backdrop-filter: var(--blur-spatial);
+  -webkit-backdrop-filter: var(--blur-spatial);
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+}
+
+.dock-editorial-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.dock-step-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.minimal-arrow-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  opacity: 0.75;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.minimal-arrow-btn:hover {
+  opacity: 1;
+}
+
+.lens-text-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lens-link {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  transition: all 0.2s;
+}
+.lens-link.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+.dock-editorial-body {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.dock-numeral {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 0.9;
+  color: var(--accent-light);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.dock-text-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.dock-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dock-hook {
+  font-size: 12.5px;
+  line-height: 1.42;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dock-thumb-mini {
+  width: 60px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+}
+.dock-thumb-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dock-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.btn-editorial-primary {
+  flex: 1;
+  height: 42px;
+  border-radius: 11px;
+  border: 1px solid var(--accent-light);
+  background: var(--accent);
+  color: #05070E;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-fluid), filter 0.2s;
+}
+.btn-editorial-primary:hover {
+  filter: brightness(1.08);
+}
+.btn-editorial-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-editorial-ghost {
+  height: 42px;
+  padding: 0 13px;
+  border-radius: 11px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-editorial-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.btn-editorial-ghost:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   2-BUTTON BOTTOM BAR (ONLY "Keşfet" & "Ayarlar")
+   ========================================================================== */
+.bottom-duo-bar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 236px;
+  height: 50px;
+  z-index: 55;
+  background: var(--bg-glass-heavy);
+  backdrop-filter: var(--blur-spatial);
+  -webkit-backdrop-filter: var(--blur-spatial);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.85);
+}
+
+.duo-tab-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-fluid);
+}
+
+.duo-tab-btn.active {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   SCREEN 2: AYARLAR — VERTICAL ARCHITECTURAL INDEX
+   (Rotalar, HUB, Pasaport, Cüzdan stacked vertically!)
+   ========================================================================== */
+.ayarlar-container {
+  padding: 36px 22px 96px;
+  min-height: 100%;
+  background: var(--bg-canvas);
+}
+
+.editorial-top-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 6px;
+}
+
+.editorial-page-title {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.vertical-index-list {
+  margin-top: 24px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.vertical-index-item {
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.vertical-index-trigger {
+  width: 100%;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.index-left {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.index-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 26px;
+  color: var(--accent-light);
+  width: 28px;
+}
+
+.index-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.index-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  display: block;
+}
+
+.index-indicator {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: transform 0.3s var(--ease-fluid), color 0.3s;
+}
+
+.vertical-index-item.expanded .index-indicator {
+  transform: rotate(90deg);
+  color: var(--accent-light);
+}
+
+.vertical-index-body {
+  display: none;
+  padding: 4px 0 24px 0;
+  animation: revealDown 0.32s var(--ease-fluid);
+}
+
+.vertical-index-item.expanded .vertical-index-body {
+  display: block;
+}
+
+@keyframes revealDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Editorial Cards inside Vertical Sections (Zero Oval Badges) */
+.editorial-block {
+  padding: 16px 0;
+  border-top: 1px solid var(--line-hairline);
+}
+.editorial-block:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+
+.editorial-surface-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-hairline);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   STORY SHEET & CEREMONY OVERLAY (Clean Editorial Styling)
+   ========================================================================== */
+.sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 75;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: opacity 0.38s var(--ease-fluid), transform 0.38s var(--ease-fluid);
+}
+.sheet-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.sheet-hero {
+  position: relative;
+  height: 236px;
+  width: 100%;
+  flex-shrink: 0;
+}
+.sheet-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sheet-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5, 7, 14, 0.55) 0%, rgba(5, 7, 14, 0.1) 40%, var(--bg-canvas) 100%);
+}
+
+.sheet-top-actions {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.sheet-hero-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 22px;
+  right: 22px;
+  z-index: 5;
+}
+.sheet-hero-caption h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+/* Architectural Underline Tabs instead of boxy pills */
+.editorial-layer-tabs {
+  display: flex;
+  gap: 24px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line-hairline);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.ed-tab-btn {
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ed-tab-btn.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+.sheet-scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 22px 32px;
+  scrollbar-width: none;
+}
+.sheet-scroll-body::-webkit-scrollbar {
+  display: none;
+}
+
+.transcript-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-hairline);
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+.transcript-item.active {
+  color: var(--text-primary);
+}
+
+/* 1895 <-> 2026 Time Machine */
+.tm-container {
+  position: relative;
+  width: 100%;
+  height: 244px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  margin: 10px 0 18px;
+  user-select: none;
+}
+.tm-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tm-before-clip {
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  overflow: hidden;
+  border-right: 1.5px solid var(--accent-light);
+}
+.tm-before-clip img {
+  width: 364px;
+  height: 244px;
+  max-width: none;
+  filter: sepia(0.32) contrast(1.06);
+}
+.tm-handle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-canvas);
+  border: 1.5px solid var(--accent-light);
+  color: var(--accent-light);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+}
+.tm-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 85;
+  background: rgba(5, 7, 14, 0.94);
+  backdrop-filter: blur(28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-fluid);
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}

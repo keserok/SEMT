@@ -1,0 +1,40 @@
+# SEMT — İstanbul Kültür & Mimari Rotaları (Robots Configuration)
+# https://semt-istanbul.com
+
+User-agent: *
+Allow: /
+Allow: /public/
+Allow: /public/assets/
+Disallow: /scratch/
+Disallow: /.chrome-data/
+
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+Allow: /public/assets/
+
+User-agent: Googlebot-Image
+Allow: /public/assets/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI & LLM Search Retrieval Crawlers
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Host & Sitemap Directives
+Host: semt-istanbul.com
+Sitemap: https://semt-istanbul.com/sitemap.xml

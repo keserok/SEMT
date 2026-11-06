@@ -1,0 +1,24 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Browser and Dev Profile Data
+.chrome-data/
+.chrome/
+
+# Dependencies
+node_modules/
+.npm/
+
+# Build & Deployment Artefacts
+.vercel/
+.next/
+dist/
+
+# Test & Debug Logs
+*.log
+npm-debug.log*
+
+# Large temporary screenshot captures
+screenshot*.png

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Ana Sayfa / Editorial Web Portal -->
+  <url>
+    <loc>https://semt-istanbul.com/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/istanbul_atmospheric_hero_bg.jpg</image:loc>
+      <image:title>SEMT İstanbul — Şehrin Görünmeyen Katmanları</image:title>
+      <image:caption>Tarihi Yarımada, Haliç ve Boğaziçi panoramik mimari silüeti</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 1. Karaköy · Kamondo & Sessiz Hanlar Rotası -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=karakoy-kamondo-sessiz-hanlar</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=karakoy-kamondo-sessiz-hanlar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=karakoy-kamondo-sessiz-hanlar&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=karakoy-kamondo-sessiz-hanlar" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/camondo_twilight.jpg</image:loc>
+      <image:title>Kamondo Merdivenleri ve Tarihi Galata Avluları</image:title>
+      <image:caption>1870 Neo-Barok Kamondo Merdivenleri ve Karaköy sessiz hanları yürüyüş rotası</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Fener-Balat · Altın Saat & Kırmızı Mektep Fotoğraf Rotası -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=balat-altin-saat-fotograf-rotasi</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=balat-altin-saat-fotograf-rotasi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=balat-altin-saat-fotograf-rotasi&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=balat-altin-saat-fotograf-rotasi" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/balat_golden_arch.jpg</image:loc>
+      <image:title>Fener Balat Kırmızı Mektep ve Cumbalı Evler Altın Saat</image:title>
+      <image:caption>Fener Rum Lisesi Marsilya tuğlası ve sabah erken saat fotoğraf noktaları</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 3. Moda · Kadıköy Gün Batımı Vapur & İskele Rotası -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=moda-gun-batimi-vapur-turu</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=moda-gun-batimi-vapur-turu" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=moda-gun-batimi-vapur-turu&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=moda-gun-batimi-vapur-turu" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/moda_bosphorus_ferry.jpg</image:loc>
+      <image:title>Şehir Hatları Vapuru ile Boğazda Gün Batımı</image:title>
+      <image:caption>Moda İskelesi, açık güvertede çay-simit ve Kadıköy sokak rotası</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 4. Tarihi Yarımada · 1600 Yıllık Bizans Sarnıçları & Süleymaniye -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=sultanahmet-bizans-sarniclari-rotasi</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=sultanahmet-bizans-sarniclari-rotasi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=sultanahmet-bizans-sarniclari-rotasi&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=sultanahmet-bizans-sarniclari-rotasi" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/sultanahmet_cistern_marble.jpg</image:loc>
+      <image:title>Şerefiye Sarnıcı Mermer Sütunları ve Su Yansımaları</image:title>
+      <image:caption>Sultanahmet Bizans sarnıçları ve Süleymaniye arka teras rotası</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 5. Kuzguncuk · 700 Yıllık Bostan & Ahşap Köşkler -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=kuzguncuk-bostan-ahsap-koskler</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=kuzguncuk-bostan-ahsap-koskler" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=kuzguncuk-bostan-ahsap-koskler&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=kuzguncuk-bostan-ahsap-koskler" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/direction_c.jpg</image:loc>
+      <image:title>Kuzguncuk İcadiye Caddesi ve Ahşap Cumbalı Evler</image:title>
+      <image:caption>Kuzguncuk tarihi bostanı ve Boğaziçi çok kültürlü mahalle dokusu</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 6. Nişantaşı · Art Nouveau & Teşvikiye Avluları -->
+  <url>
+    <loc>https://semt-istanbul.com/?route=nisantasi-art-nouveau-tasarim</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://semt-istanbul.com/?route=nisantasi-art-nouveau-tasarim" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://semt-istanbul.com/?route=nisantasi-art-nouveau-tasarim&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://semt-istanbul.com/?route=nisantasi-art-nouveau-tasarim" />
+    <image:image>
+      <image:loc>https://semt-istanbul.com/public/assets/bankalar_twilight.jpg</image:loc>
+      <image:title>Nişantaşı Belle Époque ve Art Nouveau Mimarisi</image:title>
+      <image:caption>Maçka Palas, Teşvikiye taş avluları ve tasarım pasajları rehberi</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Semt Hub Sayfaları -->
+  <url>
+    <loc>https://semt-istanbul.com/?district=karakoy</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://semt-istanbul.com/?district=balat</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://semt-istanbul.com/?district=kadikoy</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://semt-istanbul.com/?district=sultanahmet</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
