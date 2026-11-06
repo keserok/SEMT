@@ -2,7 +2,7 @@
 <html lang="tr" data-theme="obsidian">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>SEMT — İstanbul’un Görünmeyen Katmanları | Küratörlü Mimari ve Kültür Rotaları</title>
   
   <!-- Primary Meta Tags -->
@@ -5467,6 +5467,358 @@ body.route-stage-active {
   color: #334155;
 }
 
+/* ============================================================================
+   15. STUDIO-GRADE MOBILE INTERACTIVITY & ERGONOMICS (ui-ux-pro-max)
+   Optimized for iPhone / Android touch, safe areas, haptic micro-interactions
+   Desktop view remains 100% pristine and unaltered (>768px).
+   ============================================================================ */
+
+/* Mobile Bottom Navigation Bar (Hidden on Desktop) */
+.cap-mobile-nav-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Prevent iOS double tap zoom and text selection */
+  button, 
+  a, 
+  .cap-filter-btn, 
+  .cap-matcher-btn, 
+  .cap-stop-check-btn, 
+  .cap-pseo-card,
+  .cap-mob-btn {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Tactile Press State Feedback (80-150ms spring physics) */
+  button:active, 
+  .cap-filter-btn:active, 
+  .cap-matcher-btn:active, 
+  .btn-cap:active, 
+  .cap-stop-check-btn:active,
+  .cap-pseo-card:active {
+    transform: scale(0.975);
+    transition: transform 0.08s ease;
+  }
+
+  /* Safe Area Spacing on Body for Fixed Mobile Bottom HUD */
+  body.web-portal-active {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Floating Glassmorphic Mobile Action Bar */
+  .cap-mobile-nav-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8900;
+    pointer-events: none;
+    padding: 0 12px max(10px, env(safe-area-inset-bottom, 10px));
+    animation: capMobBarFadeIn 0.35s var(--ease-cap-out);
+  }
+
+  @keyframes capMobBarFadeIn {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .cap-mobile-nav-inner {
+    pointer-events: auto;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 6px 10px;
+    background: rgba(14, 18, 28, 0.88);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 24px rgba(195, 166, 119, 0.15);
+  }
+
+  [data-theme="light"] .cap-mobile-nav-inner {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(140, 109, 63, 0.28);
+    box-shadow: 0 16px 45px rgba(50, 40, 30, 0.16);
+  }
+
+  .cap-mob-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-family: var(--font-tech);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    position: relative;
+    min-width: 50px;
+    min-height: 44px; /* Touch target minimum */
+  }
+
+  [data-theme="light"] .cap-mob-btn {
+    color: #645d52;
+  }
+
+  .cap-mob-btn:hover,
+  .cap-mob-btn.is-active {
+    color: var(--cap-gold);
+  }
+
+  [data-theme="light"] .cap-mob-btn.is-active {
+    color: #8c6d3f;
+  }
+
+  .cap-mob-btn svg {
+    transition: transform 0.2s ease;
+  }
+
+  .cap-mob-btn:active svg {
+    transform: scale(0.88);
+  }
+
+  /* Center Elevated Action Button */
+  .cap-mob-btn--center {
+    color: #f8fafc;
+  }
+
+  .cap-mob-center-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cap-gold-bright), var(--cap-gold));
+    color: #05070e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(195, 166, 119, 0.5);
+    margin-top: -12px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  }
+
+  [data-theme="light"] .cap-mob-center-icon {
+    background: linear-gradient(135deg, #a68453, #8c6d3f);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(140, 109, 63, 0.45);
+  }
+
+  .cap-mob-btn--center:active .cap-mob-center-icon {
+    transform: scale(0.92);
+  }
+
+  .cap-mob-badge-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cap-mob-passport-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #10b981;
+    color: #05070e;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  }
+
+  /* Horizontal Snap Carousels for Touch Screens */
+  .cap-pseo-tabs,
+  .cap-vibe-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 6px 2px 14px;
+    gap: 10px;
+    scrollbar-width: none;
+  }
+  .cap-pseo-tabs::-webkit-scrollbar,
+  .cap-vibe-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .cap-pseo-tabs .cap-filter-btn,
+  .cap-vibe-tabs .cap-filter-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  .cap-matcher-options {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+  .cap-matcher-options::-webkit-scrollbar {
+    display: none;
+  }
+  .cap-matcher-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  /* Fluid Header on Mobile */
+  .cap-header {
+    padding: max(10px, env(safe-area-inset-top, 10px)) 0.75rem 0;
+  }
+  .cap-cartouche {
+    max-width: calc(100vw - 1.5rem);
+  }
+  .cap-cartouche__inner {
+    padding: 0.55rem 1rem;
+    gap: 0.75rem;
+  }
+  .cap-cartouche__brand {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+  .cap-theme-toggle-label {
+    display: none;
+  }
+  .cap-theme-toggle-btn {
+    padding: 5px 8px;
+  }
+
+  /* Mobile Hero Ergonomics */
+  .cap-hero {
+    padding: 6.5rem 1.25rem 3.5rem;
+    min-height: auto;
+  }
+  .cap-hero__title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+  .cap-hero__script {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+    margin-bottom: 1rem;
+  }
+  .cap-hero__center-showcase {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .cap-arch-window {
+    width: 175px;
+  }
+  .cap-hero__stats-row {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Section Spacing & Fluid Cards */
+  .cap-pseo-section,
+  .cap-chapter,
+  .cap-atlas-section,
+  .cap-programme-section {
+    padding: 4.5rem 1.25rem 5rem;
+  }
+
+  .cap-pseo-filter-bar {
+    margin: 1.5rem 0;
+    gap: 0.75rem;
+  }
+
+  .cap-key-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .cap-fact-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .cap-fact-val {
+    font-size: 0.84rem;
+  }
+
+  /* Route Stage Modal on Mobile */
+  .cap-route-stage__nav {
+    padding: max(10px, env(safe-area-inset-top, 10px)) 1rem 10px;
+  }
+  .cap-stage-hero {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  .cap-stage-body {
+    padding: 1.5rem 1rem 7rem;
+    gap: 2rem;
+  }
+  .cap-stop-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  .cap-stop-card__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cap-stop-card__actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Matcher Result Box on Mobile */
+  .cap-matcher-result {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  .cap-matcher-result button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Offline Modal on Mobile */
+  .cap-offline-modal {
+    padding: 10px;
+  }
+  .cap-offline-pass-print-area {
+    padding: 18px 16px;
+  }
+  .cap-offline-modal-actions {
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  .cap-offline-modal-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .cap-key-facts-grid {
+    grid-template-columns: 1fr;
+  }
+  .cap-hero__title {
+    font-size: 1.95rem;
+  }
+}
+
 
 
 
@@ -8553,10 +8905,35 @@ class SemtCapitoliumPortal {
     }
   }
 
+  triggerHaptic(pattern = 10) {
+    try {
+      if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+        navigator.vibrate(pattern);
+      }
+    } catch (_) {}
+  }
+
+  updateMobilePassportBadge() {
+    try {
+      let totalVisited = 0;
+      let totalStops = 0;
+      for (const r of (this.pseoRoutes || [])) {
+        totalStops += (r.stops || []).length;
+        const v = this.getVisitedStops(r.slug);
+        totalVisited += v.length;
+      }
+      const badge = document.getElementById('mob-passport-count');
+      if (badge) {
+        badge.textContent = `${totalVisited}/${totalStops || 24}`;
+      }
+    } catch (_) {}
+  }
+
   toggleTheme() {
     const nextTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
     this.applyTheme(nextTheme);
     this.playChime(nextTheme === 'light' ? 840 : 480, 0.08);
+    this.triggerHaptic(15);
     if (this.analytics) {
       this.analytics.track('theme_toggle', { theme: nextTheme });
     }
@@ -8583,6 +8960,7 @@ class SemtCapitoliumPortal {
     this.startHeroSlider();
     this.renderPseoGrid();
     this.bindRouteMatcher();
+    this.updateMobilePassportBadge();
 
     // Deep URL linking for pSEO landing pages (e.g. ?route=slug)
     this.checkUrlParams();
@@ -9362,6 +9740,37 @@ class SemtCapitoliumPortal {
           </p>
         </div>
       </footer>
+
+      <!-- 13. FLOATING MOBILE SMART HUD & ACTION BAR (MOBILE ONLY <= 768px) -->
+      <nav class="cap-mobile-nav-bar" id="cap-mobile-nav-bar" aria-label="Mobil Hızlı Menü">
+        <div class="cap-mobile-nav-inner">
+          <button class="cap-mob-btn is-active" data-mob-action="hero" title="Giriş" aria-label="Giriş">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Keşif</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="routes" title="Rotalar" aria-label="Rotalar">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            <span>Rotalar</span>
+          </button>
+          <button class="cap-mob-btn cap-mob-btn--center" data-mob-action="matcher" title="Ruh Hali & Rota Bulucu" aria-label="Rota Bul">
+            <div class="cap-mob-center-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            </div>
+            <span>Rota Bul</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="atlas" title="Canlı Boğaz Haritası" aria-label="Harita">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Harita</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="passport" title="Gezgin Pasaportu" aria-label="Pasaport">
+            <div class="cap-mob-badge-wrap">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span class="cap-mob-passport-badge" id="mob-passport-count">0/24</span>
+            </div>
+            <span>Pasaport</span>
+          </button>
+        </div>
+      </nav>
 
       <!-- 12. DEDICATED IMMERSIVE SECOND SCREEN / ROUTE EXPERIENCE STAGE -->
       <div class="cap-route-stage" id="cap-route-stage" role="dialog" aria-modal="true" aria-label="Semt Rota İkinci Ekranı">
@@ -10192,6 +10601,7 @@ class SemtCapitoliumPortal {
         this.matcherMood = btn.getAttribute('data-matcher-mood');
         section.querySelectorAll('[data-matcher-mood]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(540, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -10202,6 +10612,7 @@ class SemtCapitoliumPortal {
         this.matcherTime = btn.getAttribute('data-matcher-time');
         section.querySelectorAll('[data-matcher-time]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(580, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -10212,6 +10623,7 @@ class SemtCapitoliumPortal {
         this.matcherPace = btn.getAttribute('data-matcher-pace');
         section.querySelectorAll('[data-matcher-pace]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(620, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -10302,11 +10714,14 @@ class SemtCapitoliumPortal {
       let visited = this.getVisitedStops(slug);
       if (visited.includes(stopIdx)) {
         visited = visited.filter((x) => x !== stopIdx);
+        this.triggerHaptic(10);
       } else {
         visited.push(stopIdx);
         this.playChime(760, 0.09);
+        this.triggerHaptic([20, 35, 20]);
       }
       localStorage.setItem(`semt_visited_${slug}`, JSON.stringify(visited));
+      this.updateMobilePassportBadge();
       if (this.analytics) {
         this.analytics.track('stop_visited_toggle', {
           route_slug: slug,
@@ -10798,7 +11213,62 @@ class SemtCapitoliumPortal {
       const ratio = Math.min(1, Math.max(0, scrollTop / docHeight));
       const fill = document.getElementById('cap-progress-fill');
       if (fill) fill.style.transform = `scaleX(${ratio})`;
+
+      // Mobile Bottom HUD Active State Updater
+      const scrollPos = scrollTop + window.innerHeight * 0.4;
+      const matcherEl = document.getElementById('route-matcher-section');
+      const pseoEl = document.getElementById('pseo-library-section');
+      const atlasEl = document.getElementById('bosphorus-atlas-section');
+      
+      let currentMobAction = 'hero';
+      if (atlasEl && scrollPos >= atlasEl.offsetTop) {
+        currentMobAction = 'atlas';
+      } else if (pseoEl && scrollPos >= pseoEl.offsetTop) {
+        currentMobAction = 'routes';
+      } else if (matcherEl && scrollPos >= matcherEl.offsetTop) {
+        currentMobAction = 'matcher';
+      }
+
+      document.querySelectorAll('[data-mob-action]').forEach((b) => {
+        b.classList.toggle('is-active', b.getAttribute('data-mob-action') === currentMobAction);
+      });
     }, { passive: true });
+
+    // Mobile Bottom Smart HUD Bar Actions
+    document.querySelectorAll('[data-mob-action]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-mob-action');
+        this.triggerHaptic(12);
+        this.playChime(520, 0.06);
+
+        document.querySelectorAll('[data-mob-action]').forEach((b) => b.classList.toggle('is-active', b === btn));
+
+        if (action === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (action === 'routes') {
+          const el = document.getElementById('pseo-library-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else if (action === 'matcher') {
+          const el = document.getElementById('route-matcher-section');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            el.classList.add('pulse-highlight');
+            setTimeout(() => el.classList.remove('pulse-highlight'), 1200);
+          }
+        } else if (action === 'atlas') {
+          const el = document.getElementById('bosphorus-atlas-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else if (action === 'passport') {
+          const hud = document.getElementById('stage-passport-hud');
+          const stage = document.getElementById('cap-route-stage');
+          if (hud && stage && stage.classList.contains('is-active')) {
+            hud.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            this.openRouteBySlug(this.pseoRoutes[0].slug);
+          }
+        }
+      });
+    });
 
     // Menu Curtain Toggle
     const menuBtn = document.getElementById('btn-cartouche-menu');
@@ -10913,6 +11383,7 @@ class SemtCapitoliumPortal {
         this.pseoActiveFilter = btn.getAttribute('data-pseo-cat');
         this.renderPseoGrid();
         this.playChime(520, 0.06);
+        this.triggerHaptic(12);
       });
     });
 
@@ -10928,6 +11399,7 @@ class SemtCapitoliumPortal {
         if (this.atmo === 'obsidian' && heroImg) heroImg.src = '/assets/sultanahmet_cistern_marble.jpg';
         toggleMenu(false);
         this.playChime(587, 0.1);
+        this.triggerHaptic(15);
       });
     });
 
@@ -10943,6 +11415,7 @@ class SemtCapitoliumPortal {
     document.getElementById('btn-toggle-sound')?.addEventListener('click', (e) => {
       this.soundEnabled = !this.soundEnabled;
       e.currentTarget.textContent = this.soundEnabled ? 'BOĞAZ SESİ: AKTİF' : 'BOĞAZ SESİ: KAPALI';
+      this.triggerHaptic(15);
       if (this.soundEnabled) this.playFerryChord();
     });
 

@@ -4288,5 +4288,357 @@ body.route-stage-active {
   color: #334155;
 }
 
+/* ============================================================================
+   15. STUDIO-GRADE MOBILE INTERACTIVITY & ERGONOMICS (ui-ux-pro-max)
+   Optimized for iPhone / Android touch, safe areas, haptic micro-interactions
+   Desktop view remains 100% pristine and unaltered (>768px).
+   ============================================================================ */
+
+/* Mobile Bottom Navigation Bar (Hidden on Desktop) */
+.cap-mobile-nav-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Prevent iOS double tap zoom and text selection */
+  button, 
+  a, 
+  .cap-filter-btn, 
+  .cap-matcher-btn, 
+  .cap-stop-check-btn, 
+  .cap-pseo-card,
+  .cap-mob-btn {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Tactile Press State Feedback (80-150ms spring physics) */
+  button:active, 
+  .cap-filter-btn:active, 
+  .cap-matcher-btn:active, 
+  .btn-cap:active, 
+  .cap-stop-check-btn:active,
+  .cap-pseo-card:active {
+    transform: scale(0.975);
+    transition: transform 0.08s ease;
+  }
+
+  /* Safe Area Spacing on Body for Fixed Mobile Bottom HUD */
+  body.web-portal-active {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Floating Glassmorphic Mobile Action Bar */
+  .cap-mobile-nav-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8900;
+    pointer-events: none;
+    padding: 0 12px max(10px, env(safe-area-inset-bottom, 10px));
+    animation: capMobBarFadeIn 0.35s var(--ease-cap-out);
+  }
+
+  @keyframes capMobBarFadeIn {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .cap-mobile-nav-inner {
+    pointer-events: auto;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 6px 10px;
+    background: rgba(14, 18, 28, 0.88);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 24px rgba(195, 166, 119, 0.15);
+  }
+
+  [data-theme="light"] .cap-mobile-nav-inner {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(140, 109, 63, 0.28);
+    box-shadow: 0 16px 45px rgba(50, 40, 30, 0.16);
+  }
+
+  .cap-mob-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-family: var(--font-tech);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    position: relative;
+    min-width: 50px;
+    min-height: 44px; /* Touch target minimum */
+  }
+
+  [data-theme="light"] .cap-mob-btn {
+    color: #645d52;
+  }
+
+  .cap-mob-btn:hover,
+  .cap-mob-btn.is-active {
+    color: var(--cap-gold);
+  }
+
+  [data-theme="light"] .cap-mob-btn.is-active {
+    color: #8c6d3f;
+  }
+
+  .cap-mob-btn svg {
+    transition: transform 0.2s ease;
+  }
+
+  .cap-mob-btn:active svg {
+    transform: scale(0.88);
+  }
+
+  /* Center Elevated Action Button */
+  .cap-mob-btn--center {
+    color: #f8fafc;
+  }
+
+  .cap-mob-center-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cap-gold-bright), var(--cap-gold));
+    color: #05070e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(195, 166, 119, 0.5);
+    margin-top: -12px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  }
+
+  [data-theme="light"] .cap-mob-center-icon {
+    background: linear-gradient(135deg, #a68453, #8c6d3f);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(140, 109, 63, 0.45);
+  }
+
+  .cap-mob-btn--center:active .cap-mob-center-icon {
+    transform: scale(0.92);
+  }
+
+  .cap-mob-badge-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cap-mob-passport-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #10b981;
+    color: #05070e;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  }
+
+  /* Horizontal Snap Carousels for Touch Screens */
+  .cap-pseo-tabs,
+  .cap-vibe-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 6px 2px 14px;
+    gap: 10px;
+    scrollbar-width: none;
+  }
+  .cap-pseo-tabs::-webkit-scrollbar,
+  .cap-vibe-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .cap-pseo-tabs .cap-filter-btn,
+  .cap-vibe-tabs .cap-filter-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  .cap-matcher-options {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+  .cap-matcher-options::-webkit-scrollbar {
+    display: none;
+  }
+  .cap-matcher-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  /* Fluid Header on Mobile */
+  .cap-header {
+    padding: max(10px, env(safe-area-inset-top, 10px)) 0.75rem 0;
+  }
+  .cap-cartouche {
+    max-width: calc(100vw - 1.5rem);
+  }
+  .cap-cartouche__inner {
+    padding: 0.55rem 1rem;
+    gap: 0.75rem;
+  }
+  .cap-cartouche__brand {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+  .cap-theme-toggle-label {
+    display: none;
+  }
+  .cap-theme-toggle-btn {
+    padding: 5px 8px;
+  }
+
+  /* Mobile Hero Ergonomics */
+  .cap-hero {
+    padding: 6.5rem 1.25rem 3.5rem;
+    min-height: auto;
+  }
+  .cap-hero__title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+  .cap-hero__script {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+    margin-bottom: 1rem;
+  }
+  .cap-hero__center-showcase {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .cap-arch-window {
+    width: 175px;
+  }
+  .cap-hero__stats-row {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Section Spacing & Fluid Cards */
+  .cap-pseo-section,
+  .cap-chapter,
+  .cap-atlas-section,
+  .cap-programme-section {
+    padding: 4.5rem 1.25rem 5rem;
+  }
+
+  .cap-pseo-filter-bar {
+    margin: 1.5rem 0;
+    gap: 0.75rem;
+  }
+
+  .cap-key-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .cap-fact-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .cap-fact-val {
+    font-size: 0.84rem;
+  }
+
+  /* Route Stage Modal on Mobile */
+  .cap-route-stage__nav {
+    padding: max(10px, env(safe-area-inset-top, 10px)) 1rem 10px;
+  }
+  .cap-stage-hero {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  .cap-stage-body {
+    padding: 1.5rem 1rem 7rem;
+    gap: 2rem;
+  }
+  .cap-stop-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  .cap-stop-card__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cap-stop-card__actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Matcher Result Box on Mobile */
+  .cap-matcher-result {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  .cap-matcher-result button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Offline Modal on Mobile */
+  .cap-offline-modal {
+    padding: 10px;
+  }
+  .cap-offline-pass-print-area {
+    padding: 18px 16px;
+  }
+  .cap-offline-modal-actions {
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  .cap-offline-modal-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .cap-key-facts-grid {
+    grid-template-columns: 1fr;
+  }
+  .cap-hero__title {
+    font-size: 1.95rem;
+  }
+}
+
 
 

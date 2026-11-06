@@ -2620,10 +2620,35 @@ class SemtCapitoliumPortal {
     }
   }
 
+  triggerHaptic(pattern = 10) {
+    try {
+      if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+        navigator.vibrate(pattern);
+      }
+    } catch (_) {}
+  }
+
+  updateMobilePassportBadge() {
+    try {
+      let totalVisited = 0;
+      let totalStops = 0;
+      for (const r of (this.pseoRoutes || [])) {
+        totalStops += (r.stops || []).length;
+        const v = this.getVisitedStops(r.slug);
+        totalVisited += v.length;
+      }
+      const badge = document.getElementById('mob-passport-count');
+      if (badge) {
+        badge.textContent = `${totalVisited}/${totalStops || 24}`;
+      }
+    } catch (_) {}
+  }
+
   toggleTheme() {
     const nextTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
     this.applyTheme(nextTheme);
     this.playChime(nextTheme === 'light' ? 840 : 480, 0.08);
+    this.triggerHaptic(15);
     if (this.analytics) {
       this.analytics.track('theme_toggle', { theme: nextTheme });
     }
@@ -2650,6 +2675,7 @@ class SemtCapitoliumPortal {
     this.startHeroSlider();
     this.renderPseoGrid();
     this.bindRouteMatcher();
+    this.updateMobilePassportBadge();
 
     // Deep URL linking for pSEO landing pages (e.g. ?route=slug)
     this.checkUrlParams();
@@ -3429,6 +3455,37 @@ class SemtCapitoliumPortal {
           </p>
         </div>
       </footer>
+
+      <!-- 13. FLOATING MOBILE SMART HUD & ACTION BAR (MOBILE ONLY <= 768px) -->
+      <nav class="cap-mobile-nav-bar" id="cap-mobile-nav-bar" aria-label="Mobil Hızlı Menü">
+        <div class="cap-mobile-nav-inner">
+          <button class="cap-mob-btn is-active" data-mob-action="hero" title="Giriş" aria-label="Giriş">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Keşif</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="routes" title="Rotalar" aria-label="Rotalar">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            <span>Rotalar</span>
+          </button>
+          <button class="cap-mob-btn cap-mob-btn--center" data-mob-action="matcher" title="Ruh Hali & Rota Bulucu" aria-label="Rota Bul">
+            <div class="cap-mob-center-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            </div>
+            <span>Rota Bul</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="atlas" title="Canlı Boğaz Haritası" aria-label="Harita">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Harita</span>
+          </button>
+          <button class="cap-mob-btn" data-mob-action="passport" title="Gezgin Pasaportu" aria-label="Pasaport">
+            <div class="cap-mob-badge-wrap">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span class="cap-mob-passport-badge" id="mob-passport-count">0/24</span>
+            </div>
+            <span>Pasaport</span>
+          </button>
+        </div>
+      </nav>
 
       <!-- 12. DEDICATED IMMERSIVE SECOND SCREEN / ROUTE EXPERIENCE STAGE -->
       <div class="cap-route-stage" id="cap-route-stage" role="dialog" aria-modal="true" aria-label="Semt Rota İkinci Ekranı">
@@ -4259,6 +4316,7 @@ class SemtCapitoliumPortal {
         this.matcherMood = btn.getAttribute('data-matcher-mood');
         section.querySelectorAll('[data-matcher-mood]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(540, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -4269,6 +4327,7 @@ class SemtCapitoliumPortal {
         this.matcherTime = btn.getAttribute('data-matcher-time');
         section.querySelectorAll('[data-matcher-time]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(580, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -4279,6 +4338,7 @@ class SemtCapitoliumPortal {
         this.matcherPace = btn.getAttribute('data-matcher-pace');
         section.querySelectorAll('[data-matcher-pace]').forEach((b) => b.classList.toggle('is-selected', b === btn));
         this.playChime(620, 0.06);
+        this.triggerHaptic(12);
         this.renderMatcherResult();
       });
     });
@@ -4369,11 +4429,14 @@ class SemtCapitoliumPortal {
       let visited = this.getVisitedStops(slug);
       if (visited.includes(stopIdx)) {
         visited = visited.filter((x) => x !== stopIdx);
+        this.triggerHaptic(10);
       } else {
         visited.push(stopIdx);
         this.playChime(760, 0.09);
+        this.triggerHaptic([20, 35, 20]);
       }
       localStorage.setItem(`semt_visited_${slug}`, JSON.stringify(visited));
+      this.updateMobilePassportBadge();
       if (this.analytics) {
         this.analytics.track('stop_visited_toggle', {
           route_slug: slug,
@@ -4865,7 +4928,62 @@ class SemtCapitoliumPortal {
       const ratio = Math.min(1, Math.max(0, scrollTop / docHeight));
       const fill = document.getElementById('cap-progress-fill');
       if (fill) fill.style.transform = `scaleX(${ratio})`;
+
+      // Mobile Bottom HUD Active State Updater
+      const scrollPos = scrollTop + window.innerHeight * 0.4;
+      const matcherEl = document.getElementById('route-matcher-section');
+      const pseoEl = document.getElementById('pseo-library-section');
+      const atlasEl = document.getElementById('bosphorus-atlas-section');
+      
+      let currentMobAction = 'hero';
+      if (atlasEl && scrollPos >= atlasEl.offsetTop) {
+        currentMobAction = 'atlas';
+      } else if (pseoEl && scrollPos >= pseoEl.offsetTop) {
+        currentMobAction = 'routes';
+      } else if (matcherEl && scrollPos >= matcherEl.offsetTop) {
+        currentMobAction = 'matcher';
+      }
+
+      document.querySelectorAll('[data-mob-action]').forEach((b) => {
+        b.classList.toggle('is-active', b.getAttribute('data-mob-action') === currentMobAction);
+      });
     }, { passive: true });
+
+    // Mobile Bottom Smart HUD Bar Actions
+    document.querySelectorAll('[data-mob-action]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-mob-action');
+        this.triggerHaptic(12);
+        this.playChime(520, 0.06);
+
+        document.querySelectorAll('[data-mob-action]').forEach((b) => b.classList.toggle('is-active', b === btn));
+
+        if (action === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (action === 'routes') {
+          const el = document.getElementById('pseo-library-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else if (action === 'matcher') {
+          const el = document.getElementById('route-matcher-section');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            el.classList.add('pulse-highlight');
+            setTimeout(() => el.classList.remove('pulse-highlight'), 1200);
+          }
+        } else if (action === 'atlas') {
+          const el = document.getElementById('bosphorus-atlas-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else if (action === 'passport') {
+          const hud = document.getElementById('stage-passport-hud');
+          const stage = document.getElementById('cap-route-stage');
+          if (hud && stage && stage.classList.contains('is-active')) {
+            hud.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            this.openRouteBySlug(this.pseoRoutes[0].slug);
+          }
+        }
+      });
+    });
 
     // Menu Curtain Toggle
     const menuBtn = document.getElementById('btn-cartouche-menu');
@@ -4980,6 +5098,7 @@ class SemtCapitoliumPortal {
         this.pseoActiveFilter = btn.getAttribute('data-pseo-cat');
         this.renderPseoGrid();
         this.playChime(520, 0.06);
+        this.triggerHaptic(12);
       });
     });
 
@@ -4995,6 +5114,7 @@ class SemtCapitoliumPortal {
         if (this.atmo === 'obsidian' && heroImg) heroImg.src = '/assets/sultanahmet_cistern_marble.jpg';
         toggleMenu(false);
         this.playChime(587, 0.1);
+        this.triggerHaptic(15);
       });
     });
 
@@ -5010,6 +5130,7 @@ class SemtCapitoliumPortal {
     document.getElementById('btn-toggle-sound')?.addEventListener('click', (e) => {
       this.soundEnabled = !this.soundEnabled;
       e.currentTarget.textContent = this.soundEnabled ? 'BOĞAZ SESİ: AKTİF' : 'BOĞAZ SESİ: KAPALI';
+      this.triggerHaptic(15);
       if (this.soundEnabled) this.playFerryChord();
     });
 
