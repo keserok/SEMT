@@ -30,7 +30,11 @@ const server = http.createServer((req, res) => {
     safePath = '/index.html';
   }
 
-  const filePath = path.join(__dirname, safePath);
+  let filePath = path.join(__dirname, safePath);
+  if (!fs.existsSync(filePath) && safePath.startsWith('/assets/')) {
+    const pubPath = path.join(__dirname, 'public', safePath);
+    if (fs.existsSync(pubPath)) filePath = pubPath;
+  }
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 

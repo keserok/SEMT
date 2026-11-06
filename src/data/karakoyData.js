@@ -9,7 +9,7 @@ export const DISTRICTS = [
     mapFilter: 'sepia(0.18) hue-rotate(-10deg) saturate(1.35) contrast(1.08)',
     center: { lat: 41.0242, lng: 28.9746, zoom: 16 },
     atmosphere: 'Alacakaranlık · 17°C',
-    heroImage: './public/assets/galata_twilight.jpg'
+    heroImage: '/assets/galata_twilight.jpg'
   },
   {
     id: 'balat',
@@ -21,7 +21,7 @@ export const DISTRICTS = [
     mapFilter: 'sepia(0.22) hue-rotate(315deg) saturate(1.3) contrast(1.08)',
     center: { lat: 41.0318, lng: 28.9489, zoom: 16 },
     atmosphere: 'Haliç Esintisi · 16°C',
-    heroImage: './public/assets/camondo_twilight.jpg'
+    heroImage: '/assets/camondo_twilight.jpg'
   },
   {
     id: 'kadikoy',
@@ -33,7 +33,7 @@ export const DISTRICTS = [
     mapFilter: 'hue-rotate(155deg) saturate(1.25) contrast(1.06)',
     center: { lat: 40.9862, lng: 29.0254, zoom: 15.5 },
     atmosphere: 'Gün Batımı · 18°C',
-    heroImage: './public/assets/bankalar_twilight.jpg'
+    heroImage: '/assets/bankalar_twilight.jpg'
   },
   {
     id: 'sultanahmet',
@@ -45,7 +45,7 @@ export const DISTRICTS = [
     mapFilter: 'sepia(0.28) saturate(1.4) contrast(1.1)',
     center: { lat: 41.0086, lng: 28.9802, zoom: 15.5 },
     atmosphere: 'Gece Kehribarı · 17°C',
-    heroImage: './public/assets/camondo_1895.jpg'
+    heroImage: '/assets/camondo_1895.jpg'
   }
 ];
 
@@ -83,8 +83,8 @@ export const STOPS = [
     xpReward: 150,
     coords: { lat: 41.02565, lng: 28.97415 },
     mapPos: { x: 0.36, y: 0.23 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1892',
     visitorHook: 'İki kıtanın ve üç denizin birleştiği 676 yıllık Ceneviz gözetleme kulesinin şifresi.',
     localHook: 'Kulenin 4. katındaki taş kemerlerde gizlenen 1831 yangın izi ve Evliya Çelebi’nin Hezârfen kaydı.',
@@ -140,8 +140,8 @@ export const STOPS = [
     xpReward: 200,
     coords: { lat: 41.02395, lng: 28.97368 },
     mapPos: { x: 0.45, y: 0.46 },
-    heroImage: './public/assets/camondo_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/camondo_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1895',
     visitorHook: 'Bankalar Caddesi’nin sert taş binaları arasında su dalgası gibi kıvrılan bu merdiven neden inşa edildi?',
     localHook: 'Abraham Salomon Kamondo’nun torunları okula giderken düşmesin diye hesaplanan çift sarmallı güvenlik mimarisi.',
@@ -192,8 +192,8 @@ export const STOPS = [
     xpReward: 250,
     coords: { lat: 41.02365, lng: 28.97345 },
     mapPos: { x: 0.42, y: 0.56 },
-    heroImage: './public/assets/bankalar_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/bankalar_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1895',
     visitorHook: '19. yüzyılda Doğu Akdeniz’in finans kalbi olan bu binanın iki yüzü neden iki farklı mimari dilde yapıldı?',
     localHook: 'Mimar Alexandre Vallauri’nin cadde cephesini Neoklasik Avrupa, Haliç cephesini ise Oryantalist Osmanlı sarayı gibi tasarlamasının sırrı.',
@@ -239,8 +239,8 @@ export const STOPS = [
     xpReward: 180,
     coords: { lat: 41.02445, lng: 28.97265 },
     mapPos: { x: 0.31, y: 0.48 },
-    heroImage: './public/assets/camondo_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/camondo_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1888',
     visitorHook: 'Dar bir sokak kapısından girildiğinde zamanın 1771 yılında durduğu yüksek tavanlı taş avlu.',
     localHook: 'Fransız شairi André Chénier’nin doğduğu ve ilk Osmanlı Bankası’nın 1856’da kurulduğu tarihi han.',
@@ -281,8 +281,8 @@ export const STOPS = [
     xpReward: 180,
     coords: { lat: 41.0221, lng: 28.9762 },
     mapPos: { x: 0.62, y: 0.76 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1902',
     visitorHook: 'Avrupa’dan gelen Orient Express yolcularının Asya yakasına geçmek için vapura bindiği tarihi rıhtım.',
     localHook: 'Denizin taş bloklarla doldurulmasıyla kazanılan rıhtım hattı ve eski yüzer iskelenin öyküsü.',
@@ -322,8 +322,8 @@ export const STOPS = [
     xpReward: 220,
     coords: { lat: 41.0264, lng: 28.9806 },
     mapPos: { x: 0.84, y: 0.42 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1890',
     visitorHook: 'Padişahın “Sen denizlerin kaptanısın, camini denize yap!” sözü üzerine denizin doldurulmasıyla yapılan külliye.',
     localHook: '92 yaşındaki Mimar Sinan’ın bu camide Ayasofya’nın plan şemasını yeniden yorumlamasının mimari sırrı.',
@@ -362,7 +362,7 @@ export const ROUTES = [
     stopsCount: 6,
     priceTag: 'İlk 2 Durak Ücretsiz · Sonrası 2,99 €',
     narrator: 'Rıfat Kaptan & Dr. Leyla',
-    heroImage: './public/assets/bankalar_twilight.jpg'
+    heroImage: '/assets/bankalar_twilight.jpg'
   },
   {
     id: 'route-mystery',
@@ -374,7 +374,7 @@ export const ROUTES = [
     stopsCount: 4,
     priceTag: 'SEMT Pass Dahilinde (4,99 €)',
     narrator: 'Mert Arslan',
-    heroImage: './public/assets/camondo_twilight.jpg'
+    heroImage: '/assets/camondo_twilight.jpg'
   },
   {
     id: 'route-ai',
@@ -386,7 +386,7 @@ export const ROUTES = [
     stopsCount: 5,
     priceTag: 'Ücretsiz Önizleme',
     narrator: 'Dr. Leyla Soydan',
-    heroImage: './public/assets/galata_twilight.jpg'
+    heroImage: '/assets/galata_twilight.jpg'
   }
 ];
 
@@ -459,7 +459,7 @@ export const HUB_ROOM = {
       stop: 'Galata Kulesi',
       time: '18:42',
       caption: 'Ceneviz surlarının 1831 yangın kuşağını alacakaranlıkta yakaladık.',
-      image: './public/assets/galata_twilight.jpg'
+      image: '/assets/galata_twilight.jpg'
     },
     {
       id: 'm2',
@@ -467,7 +467,7 @@ export const HUB_ROOM = {
       stop: 'Kamondo Merdivenleri',
       time: '19:05',
       caption: '1895 arşiv fotoğrafıyla birebir aynı açıdan grup karesi.',
-      image: './public/assets/camondo_twilight.jpg'
+      image: '/assets/camondo_twilight.jpg'
     }
   ]
 };

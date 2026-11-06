@@ -5,6 +5,14 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// 1. Ensure assets directory exists at root and sync all assets from public/assets
+const publicAssetsDir = path.join(__dirname, 'public/assets');
+const rootAssetsDir = path.join(__dirname, 'assets');
+if (fs.existsSync(publicAssetsDir)) {
+  fs.cpSync(publicAssetsDir, rootAssetsDir, { recursive: true });
+  console.log('✨ Synced all media assets to root /assets directory!');
+}
+
 const dataContent = fs.readFileSync(path.join(__dirname, 'src/data/karakoyData.js'), 'utf-8');
 const audioContent = fs.readFileSync(path.join(__dirname, 'src/engine/audioHaptics.js'), 'utf-8');
 const mapContent = fs.readFileSync(path.join(__dirname, 'src/engine/mapCanvas.js'), 'utf-8');
@@ -140,9 +148,35 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 `;
     indexHtml = indexHtml.substring(0, markerIdx) + newEngineAndApp + indexHtml.substring(endScriptIdx);
-    fs.writeFileSync(indexPath, indexHtml, 'utf-8');
-    console.log('✨ index.html inlined scripts successfully synchronized!');
   }
 }
 
+// Global cleanup on index.html: normalize all image URLs to /assets/
+indexHtml = indexHtml.replaceAll('https://semt-istanbul.com/public/assets/', 'https://semt-istanbul.com/assets/');
+indexHtml = indexHtml.replaceAll('"public/assets/', '"/assets/');
+indexHtml = indexHtml.replaceAll('\'public/assets/', '\'/assets/');
 
+// Remove debug/technical SEO copy from user-facing markup
+indexHtml = indexHtml.replaceAll(
+  'PROGRAMATİK SEO DİZİNİ · GOOGLE İNDEKSİNE HAZIR 2.400 MİKRO ROTA',
+  'SEMT KÜRASYON ARŞİVİ · İSTANBUL MİMARİ VE KÜLTÜR ROTALARI'
+);
+indexHtml = indexHtml.replaceAll(
+  'SCHEMA.ORG TOURISTTRIP & FAQ YAPILANDIRMASI AKTİF',
+  '6 ÖZEL EDİTÖRYAL PARKUR · SESLİ REHBERLİ'
+);
+indexHtml = indexHtml.replaceAll(
+  '<span class="cap-menu-item__chap">pSEO KEŞİF KÜTÜPHANESİ</span>',
+  '<span class="cap-menu-item__chap">05 · KÜRASYON ARŞİVİ</span>'
+);
+indexHtml = indexHtml.replaceAll(
+  '<span class="cap-menu-item__title">Otomatik Rota & pSEO Arşivi</span>',
+  '<span class="cap-menu-item__title">İstanbul Niş Rota Kütüphanesi</span>'
+);
+indexHtml = indexHtml.replaceAll(
+  '<span class="cap-menu-item__sub">Google İndeksli 2.400 Mikro Rota ve Detaylı Adımlar</span>',
+  '<span class="cap-menu-item__sub">Fotoğraf, Sessiz Çalışma, Tarih ve Boğaz Parkurları</span>'
+);
+
+fs.writeFileSync(indexPath, indexHtml, 'utf-8');
+console.log('✨ index.html fully synchronized and sanitized!');

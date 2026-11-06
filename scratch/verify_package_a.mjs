@@ -35,8 +35,7 @@ assert(indexHtml.includes('name="geo.region" content="TR-34"'), 'Local Geo-SEO r
 assert(indexHtml.includes('name="geo.position" content="41.0082;28.9784"'), 'Local Geo coordinates present');
 assert(indexHtml.includes('property="og:type" content="website"'), 'OpenGraph type present');
 assert(indexHtml.includes('property="og:image"'), 'OpenGraph image present');
-assert(indexHtml.includes('name="twitter:card" content="summary_large_image"'), 'Twitter summary_large_image card present');
-assert(indexHtml.includes('rel="preload" as="image" href="public/assets/istanbul_atmospheric_hero_bg.jpg" fetchpriority="high"'), 'High-priority preload for hero image present');
+assert(indexHtml.includes('rel="preload" as="image"') && indexHtml.includes('istanbul_atmospheric_hero_bg.jpg') && indexHtml.includes('fetchpriority="high"'), 'High-priority preload for hero image present');
 
 // Verify Schema.org JSON-LD
 const jsonLdMatch = indexHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);

@@ -12,7 +12,7 @@ const DISTRICTS = [
     mapFilter: 'sepia(0.18) hue-rotate(-10deg) saturate(1.35) contrast(1.08)',
     center: { lat: 41.0242, lng: 28.9746, zoom: 16 },
     atmosphere: 'Alacakaranlık · 17°C',
-    heroImage: './public/assets/galata_twilight.jpg'
+    heroImage: '/assets/galata_twilight.jpg'
   },
   {
     id: 'balat',
@@ -24,7 +24,7 @@ const DISTRICTS = [
     mapFilter: 'sepia(0.22) hue-rotate(315deg) saturate(1.3) contrast(1.08)',
     center: { lat: 41.0318, lng: 28.9489, zoom: 16 },
     atmosphere: 'Haliç Esintisi · 16°C',
-    heroImage: './public/assets/camondo_twilight.jpg'
+    heroImage: '/assets/camondo_twilight.jpg'
   },
   {
     id: 'kadikoy',
@@ -36,7 +36,7 @@ const DISTRICTS = [
     mapFilter: 'hue-rotate(155deg) saturate(1.25) contrast(1.06)',
     center: { lat: 40.9862, lng: 29.0254, zoom: 15.5 },
     atmosphere: 'Gün Batımı · 18°C',
-    heroImage: './public/assets/bankalar_twilight.jpg'
+    heroImage: '/assets/bankalar_twilight.jpg'
   },
   {
     id: 'sultanahmet',
@@ -48,7 +48,7 @@ const DISTRICTS = [
     mapFilter: 'sepia(0.28) saturate(1.4) contrast(1.1)',
     center: { lat: 41.0086, lng: 28.9802, zoom: 15.5 },
     atmosphere: 'Gece Kehribarı · 17°C',
-    heroImage: './public/assets/camondo_1895.jpg'
+    heroImage: '/assets/camondo_1895.jpg'
   }
 ];
 
@@ -86,8 +86,8 @@ const STOPS = [
     xpReward: 150,
     coords: { lat: 41.02565, lng: 28.97415 },
     mapPos: { x: 0.36, y: 0.23 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1892',
     visitorHook: 'İki kıtanın ve üç denizin birleştiği 676 yıllık Ceneviz gözetleme kulesinin şifresi.',
     localHook: 'Kulenin 4. katındaki taş kemerlerde gizlenen 1831 yangın izi ve Evliya Çelebi’nin Hezârfen kaydı.',
@@ -143,8 +143,8 @@ const STOPS = [
     xpReward: 200,
     coords: { lat: 41.02395, lng: 28.97368 },
     mapPos: { x: 0.45, y: 0.46 },
-    heroImage: './public/assets/camondo_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/camondo_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1895',
     visitorHook: 'Bankalar Caddesi’nin sert taş binaları arasında su dalgası gibi kıvrılan bu merdiven neden inşa edildi?',
     localHook: 'Abraham Salomon Kamondo’nun torunları okula giderken düşmesin diye hesaplanan çift sarmallı güvenlik mimarisi.',
@@ -195,8 +195,8 @@ const STOPS = [
     xpReward: 250,
     coords: { lat: 41.02365, lng: 28.97345 },
     mapPos: { x: 0.42, y: 0.56 },
-    heroImage: './public/assets/bankalar_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/bankalar_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1895',
     visitorHook: '19. yüzyılda Doğu Akdeniz’in finans kalbi olan bu binanın iki yüzü neden iki farklı mimari dilde yapıldı?',
     localHook: 'Mimar Alexandre Vallauri’nin cadde cephesini Neoklasik Avrupa, Haliç cephesini ise Oryantalist Osmanlı sarayı gibi tasarlamasının sırrı.',
@@ -242,8 +242,8 @@ const STOPS = [
     xpReward: 180,
     coords: { lat: 41.02445, lng: 28.97265 },
     mapPos: { x: 0.31, y: 0.48 },
-    heroImage: './public/assets/camondo_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/camondo_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1888',
     visitorHook: 'Dar bir sokak kapısından girildiğinde zamanın 1771 yılında durduğu yüksek tavanlı taş avlu.',
     localHook: 'Fransız شairi André Chénier’nin doğduğu ve ilk Osmanlı Bankası’nın 1856’da kurulduğu tarihi han.',
@@ -284,8 +284,8 @@ const STOPS = [
     xpReward: 180,
     coords: { lat: 41.0221, lng: 28.9762 },
     mapPos: { x: 0.62, y: 0.76 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1902',
     visitorHook: 'Avrupa’dan gelen Orient Express yolcularının Asya yakasına geçmek için vapura bindiği tarihi rıhtım.',
     localHook: 'Denizin taş bloklarla doldurulmasıyla kazanılan rıhtım hattı ve eski yüzer iskelenin öyküsü.',
@@ -325,8 +325,8 @@ const STOPS = [
     xpReward: 220,
     coords: { lat: 41.0264, lng: 28.9806 },
     mapPos: { x: 0.84, y: 0.42 },
-    heroImage: './public/assets/galata_twilight.jpg',
-    archiveImage: './public/assets/camondo_1895.jpg',
+    heroImage: '/assets/galata_twilight.jpg',
+    archiveImage: '/assets/camondo_1895.jpg',
     archiveYear: '1890',
     visitorHook: 'Padişahın “Sen denizlerin kaptanısın, camini denize yap!” sözü üzerine denizin doldurulmasıyla yapılan külliye.',
     localHook: '92 yaşındaki Mimar Sinan’ın bu camide Ayasofya’nın plan şemasını yeniden yorumlamasının mimari sırrı.',
@@ -365,7 +365,7 @@ const ROUTES = [
     stopsCount: 6,
     priceTag: 'İlk 2 Durak Ücretsiz · Sonrası 2,99 €',
     narrator: 'Rıfat Kaptan & Dr. Leyla',
-    heroImage: './public/assets/bankalar_twilight.jpg'
+    heroImage: '/assets/bankalar_twilight.jpg'
   },
   {
     id: 'route-mystery',
@@ -377,7 +377,7 @@ const ROUTES = [
     stopsCount: 4,
     priceTag: 'SEMT Pass Dahilinde (4,99 €)',
     narrator: 'Mert Arslan',
-    heroImage: './public/assets/camondo_twilight.jpg'
+    heroImage: '/assets/camondo_twilight.jpg'
   },
   {
     id: 'route-ai',
@@ -389,7 +389,7 @@ const ROUTES = [
     stopsCount: 5,
     priceTag: 'Ücretsiz Önizleme',
     narrator: 'Dr. Leyla Soydan',
-    heroImage: './public/assets/galata_twilight.jpg'
+    heroImage: '/assets/galata_twilight.jpg'
   }
 ];
 
@@ -462,7 +462,7 @@ const HUB_ROOM = {
       stop: 'Galata Kulesi',
       time: '18:42',
       caption: 'Ceneviz surlarının 1831 yangın kuşağını alacakaranlıkta yakaladık.',
-      image: './public/assets/galata_twilight.jpg'
+      image: '/assets/galata_twilight.jpg'
     },
     {
       id: 'm2',
@@ -470,7 +470,7 @@ const HUB_ROOM = {
       stop: 'Kamondo Merdivenleri',
       time: '19:05',
       caption: '1895 arşiv fotoğrafıyla birebir aynı açıdan grup karesi.',
-      image: './public/assets/camondo_twilight.jpg'
+      image: '/assets/camondo_twilight.jpg'
     }
   ]
 };
@@ -2266,11 +2266,11 @@ class SemtCapitoliumPortal {
         ferryLink: 'Karaköy ↔ Kadıköy Vapuru (20 dk · 1.50€)',
         coords: { x: 0.42, y: 0.44, lat: '41.0242° N', lng: '28.9746° E' },
         images: [
-          'public/assets/galata_twilight.jpg',
-          'public/assets/camondo_1895.jpg',
-          'public/assets/bankalar_twilight.jpg',
-          'public/assets/camondo_twilight.jpg',
-          'public/assets/galata_tower_vintage_poster.jpg'
+          '/assets/galata_twilight.jpg',
+          '/assets/camondo_1895.jpg',
+          '/assets/bankalar_twilight.jpg',
+          '/assets/camondo_twilight.jpg',
+          '/assets/galata_tower_vintage_poster.jpg'
         ],
         stops: ['Galata Kulesi & Surlar', 'Kamondo Merdivenleri', 'SALT Galata & Kasa Daireleri', 'St. Pierre Han Taş Avlusu']
       },
@@ -2287,10 +2287,10 @@ class SemtCapitoliumPortal {
         ferryLink: 'Karaköy → Fener Haliç Hattı (14 dk · 1.50€)',
         coords: { x: 0.23, y: 0.34, lat: '41.0318° N', lng: '28.9489° E' },
         images: [
-          'public/assets/balat_golden_arch.jpg',
-          'public/assets/balat_wooden_houses.jpg',
-          'public/assets/balat_cat_church.jpg',
-          'public/assets/balat_vintage_poster.jpg'
+          '/assets/balat_golden_arch.jpg',
+          '/assets/balat_wooden_houses.jpg',
+          '/assets/balat_cat_church.jpg',
+          '/assets/balat_vintage_poster.jpg'
         ],
         stops: ['Fener Rum Lisesi (Kırmızı Mektep)', 'Merdivenli Yokuş & Cumbalı Evler', 'Sveti Stefan (Demir Kilise)', 'Tarihi Taş Fırınlar']
       },
@@ -2307,11 +2307,11 @@ class SemtCapitoliumPortal {
         ferryLink: 'Eminönü ↔ Üsküdar / Kadıköy (18 dk · 1.50€)',
         coords: { x: 0.36, y: 0.68, lat: '41.0086° N', lng: '28.9802° E' },
         images: [
-          'public/assets/sultanahmet_cistern_marble.jpg',
-          'public/assets/basilica_cistern_columns.jpg',
-          'public/assets/suleymaniye_courtyard.jpg',
-          'public/assets/suleymaniye_panorama.jpg',
-          'public/assets/basilica_cistern_poster.jpg'
+          '/assets/sultanahmet_cistern_marble.jpg',
+          '/assets/basilica_cistern_columns.jpg',
+          '/assets/suleymaniye_courtyard.jpg',
+          '/assets/suleymaniye_panorama.jpg',
+          '/assets/basilica_cistern_poster.jpg'
         ],
         stops: ['Şerefiye & Yerebatan Sarnıcı', 'Süleymaniye Arka Terası', 'Büyük Valide Han Avlusu', 'Hipodrom Meydanı']
       },
@@ -2328,10 +2328,10 @@ class SemtCapitoliumPortal {
         ferryLink: 'Karaköy → Kadıköy Gün Batımı Vapuru (20 dk)',
         coords: { x: 0.74, y: 0.76, lat: '40.9862° N', lng: '29.0254° E' },
         images: [
-          'public/assets/moda_bosphorus_ferry.jpg',
-          'public/assets/bosphorus_ferry_poster.jpg',
-          'public/assets/haydarpasa_vintage_poster.jpg',
-          'public/assets/maidens_tower_poster.jpg'
+          '/assets/moda_bosphorus_ferry.jpg',
+          '/assets/bosphorus_ferry_poster.jpg',
+          '/assets/haydarpasa_vintage_poster.jpg',
+          '/assets/maidens_tower_poster.jpg'
         ],
         stops: ['Tarihi Moda İskelesi & Kütüphanesi', 'Kadıköy Tarihi Çarşı', 'Bahariye Nostaljik Tramvayı', 'Moda Sahil Kayalıkları']
       },
@@ -2348,11 +2348,11 @@ class SemtCapitoliumPortal {
         ferryLink: 'Beşiktaş / Eminönü → Üsküdar + 12 dk Kıyı Yürüyüşü',
         coords: { x: 0.78, y: 0.36, lat: '41.0348° N', lng: '29.0298° E' },
         images: [
-          'public/assets/direction_c.jpg',
-          'public/assets/beylerbeyi_palace_poster.jpg',
-          'public/assets/ortakoy_mosque_poster.jpg',
-          'public/assets/rumeli_fortress_poster.jpg',
-          'public/assets/pierre_loti_poster.jpg'
+          '/assets/direction_c.jpg',
+          '/assets/beylerbeyi_palace_poster.jpg',
+          '/assets/ortakoy_mosque_poster.jpg',
+          '/assets/rumeli_fortress_poster.jpg',
+          '/assets/pierre_loti_poster.jpg'
         ],
         stops: ['İcadiye Caddesi & Ahşap Köşkler', '700 Yıllık Kuzguncuk Bostanı', 'Nail Kitabevi & Tarihi Fırın', 'Çınaraltı Boğaz İskelesi']
       },
@@ -2369,10 +2369,10 @@ class SemtCapitoliumPortal {
         ferryLink: 'Kabataş İskelesi + Füniküler',
         coords: { x: 0.52, y: 0.20, lat: '41.0485° N', lng: '28.9940° E' },
         images: [
-          'public/assets/bankalar_twilight.jpg',
-          'public/assets/dolmabahce_palace_poster.jpg',
-          'public/assets/palace_interior_vintage_poster.jpg',
-          'public/assets/grand_bazaar_lamps.jpg'
+          '/assets/bankalar_twilight.jpg',
+          '/assets/dolmabahce_palace_poster.jpg',
+          '/assets/palace_interior_vintage_poster.jpg',
+          '/assets/grand_bazaar_lamps.jpg'
         ],
         stops: ['Teşvikiye Camii Taş Avlusu', 'Maçka Palas & Art Nouveau Cepheler', 'Atiye Sokak Avluları', 'Maçka Sanat Vadisi']
       }
@@ -2392,13 +2392,13 @@ class SemtCapitoliumPortal {
         budget: '~165 ₺',
         bestHour: '17:45 Alacakaranlık',
         crowd: 'Düşük (%20)',
-        image: 'public/assets/camondo_twilight.jpg',
+        image: '/assets/camondo_twilight.jpg',
         images: [
-          'public/assets/camondo_twilight.jpg',
-          'public/assets/istanbul_ticket_pass.jpg',
-          'public/assets/galata_bridge_fishermen.jpg',
-          'public/assets/galata_tower_vintage_poster.jpg',
-          'public/assets/istanbul_compass_screen.jpg'
+          '/assets/camondo_twilight.jpg',
+          '/assets/istanbul_ticket_pass.jpg',
+          '/assets/galata_bridge_fishermen.jpg',
+          '/assets/galata_tower_vintage_poster.jpg',
+          '/assets/istanbul_compass_screen.jpg'
         ],
         stops: ['Kamondo Merdivenleri', 'SALT Galata Kasa Daireleri', 'St. Pierre Han Taş Avlusu'],
         metaDesc: 'Karaköy’ün en iyi sessiz çalışma mekanları, Kamondo Merdivenleri ve tarihi han avluları saatlik yürüyüş rehberi.',
@@ -2418,13 +2418,13 @@ class SemtCapitoliumPortal {
         budget: '~140 ₺',
         bestHour: '07:30 Altın Saat',
         crowd: 'Çok Düşük (%10)',
-        image: 'public/assets/balat_golden_arch.jpg',
+        image: '/assets/balat_golden_arch.jpg',
         images: [
-          'public/assets/balat_golden_arch.jpg',
-          'public/assets/balat_vintage_poster.jpg',
-          'public/assets/balat_wooden_houses.jpg',
-          'public/assets/balat_cat_church.jpg',
-          'public/assets/chora_church_historic.jpg'
+          '/assets/balat_golden_arch.jpg',
+          '/assets/balat_vintage_poster.jpg',
+          '/assets/balat_wooden_houses.jpg',
+          '/assets/balat_cat_church.jpg',
+          '/assets/chora_church_historic.jpg'
         ],
         stops: ['Kırmızı Mektep (Fener Rum Lisesi)', 'Sancaktar Yokuşu', 'Merdivenli Yokuş Pastel Evler', 'Tarihi Taş Fırın'],
         metaDesc: 'Sabah 07:30 Fener Balat fotoğraf çekim noktaları, lens önerileri ve en sakin yürüyüş rotası.',
@@ -2444,13 +2444,13 @@ class SemtCapitoliumPortal {
         budget: '~110 ₺',
         bestHour: '18:15 Gün Batımı',
         crowd: 'Orta (%45)',
-        image: 'public/assets/moda_bosphorus_ferry.jpg',
+        image: '/assets/moda_bosphorus_ferry.jpg',
         images: [
-          'public/assets/moda_bosphorus_ferry.jpg',
-          'public/assets/bosphorus_ferry_poster.jpg',
-          'public/assets/haydarpasa_vintage_poster.jpg',
-          'public/assets/red_tram_vintage_poster.jpg',
-          'public/assets/maidens_tower_poster.jpg'
+          '/assets/moda_bosphorus_ferry.jpg',
+          '/assets/bosphorus_ferry_poster.jpg',
+          '/assets/haydarpasa_vintage_poster.jpg',
+          '/assets/red_tram_vintage_poster.jpg',
+          '/assets/maidens_tower_poster.jpg'
         ],
         stops: ['Karaköy İskelesi Güverte', 'Kadıköy Balıkçılar Çarşısı', 'Tarihi Moda İskelesi Kütüphanesi', 'Moda Çay Bahçesi'],
         metaDesc: '1.50€ vapurla İstanbul Boğazı gün batımı turu, Tarihi Moda İskelesi ve Kadıköy sokak rehberi.',
@@ -2470,13 +2470,13 @@ class SemtCapitoliumPortal {
         budget: '~220 ₺',
         bestHour: '08:30 Sabah Sükuneti',
         crowd: 'Düşük (%25)',
-        image: 'public/assets/sultanahmet_cistern_marble.jpg',
+        image: '/assets/sultanahmet_cistern_marble.jpg',
         images: [
-          'public/assets/sultanahmet_cistern_marble.jpg',
-          'public/assets/basilica_cistern_columns.jpg',
-          'public/assets/suleymaniye_courtyard.jpg',
-          'public/assets/grand_bazaar_vintage_poster.jpg',
-          'public/assets/istanbul_stamp_diorama.jpg'
+          '/assets/sultanahmet_cistern_marble.jpg',
+          '/assets/basilica_cistern_columns.jpg',
+          '/assets/suleymaniye_courtyard.jpg',
+          '/assets/grand_bazaar_vintage_poster.jpg',
+          '/assets/istanbul_stamp_diorama.jpg'
         ],
         stops: ['Şerefiye Sarnıcı 360° Şov', 'Süleymaniye Arka Avlu Terası', 'Büyük Valide Han Avlusu'],
         metaDesc: 'Sultanahmet ve Süleymaniye gizli seyir terasları, Bizans sarnıçları rehberi ve sıra beklemeden ziyaret taktikleri.',
@@ -2495,13 +2495,13 @@ class SemtCapitoliumPortal {
         budget: '~130 ₺',
         bestHour: '10:30 Kuşluk Işığı',
         crowd: 'Sakin (%20)',
-        image: 'public/assets/direction_c.jpg',
+        image: '/assets/direction_c.jpg',
         images: [
-          'public/assets/direction_c.jpg',
-          'public/assets/beylerbeyi_palace_poster.jpg',
-          'public/assets/ortakoy_mosque_poster.jpg',
-          'public/assets/rumeli_fortress_poster.jpg',
-          'public/assets/pierre_loti_poster.jpg'
+          '/assets/direction_c.jpg',
+          '/assets/beylerbeyi_palace_poster.jpg',
+          '/assets/ortakoy_mosque_poster.jpg',
+          '/assets/rumeli_fortress_poster.jpg',
+          '/assets/pierre_loti_poster.jpg'
         ],
         stops: ['İcadiye Caddesi Renkli Köşkler', '700 Yıllık Kuzguncuk Bostanı', 'Nail Kitabevi & Çınaraltı'],
         metaDesc: 'Kuzguncuk İcadiye Caddesi, tarihi bostan, ahşap köşkler ve en iyi fotoğraf açıları.',
@@ -2520,12 +2520,12 @@ class SemtCapitoliumPortal {
         budget: '~280 ₺',
         bestHour: '15:30 İkindi Işığı',
         crowd: 'Orta (%40)',
-        image: 'public/assets/bankalar_twilight.jpg',
+        image: '/assets/bankalar_twilight.jpg',
         images: [
-          'public/assets/bankalar_twilight.jpg',
-          'public/assets/dolmabahce_palace_poster.jpg',
-          'public/assets/palace_interior_vintage_poster.jpg',
-          'public/assets/grand_bazaar_lamps.jpg'
+          '/assets/bankalar_twilight.jpg',
+          '/assets/dolmabahce_palace_poster.jpg',
+          '/assets/palace_interior_vintage_poster.jpg',
+          '/assets/grand_bazaar_lamps.jpg'
         ],
         stops: ['Teşvikiye Camii Taş Avlusu', 'Maçka Palas Rölyefleri', 'Atiye Sokak Tasarım Pasajları'],
         metaDesc: 'Nişantaşı Art Nouveau apartmanları, Maçka Palas mimari yürüyüş rotası ve tasarım kafeleri.',
@@ -2545,9 +2545,9 @@ class SemtCapitoliumPortal {
         secretDesc: 'Karaköy–Kadıköy veya Boğaz hattı vapuruyla açık güvertede çay-simit eşliğinde gerçek kıta geçişi.',
         saving: '%97 TASARRUF',
         images: [
-          'public/assets/ferries_golden_horn.jpg',
-          'public/assets/bosphorus_ferry_poster.jpg',
-          'public/assets/moda_bosphorus_ferry.jpg'
+          '/assets/ferries_golden_horn.jpg',
+          '/assets/bosphorus_ferry_poster.jpg',
+          '/assets/moda_bosphorus_ferry.jpg'
         ]
       },
       {
@@ -2559,9 +2559,9 @@ class SemtCapitoliumPortal {
         secretDesc: '1771 tarihli hanın çatı açısı ve Mimar Sinan’ın Süleymaniye arka avlusundaki ücretsiz Haliç manzarası.',
         saving: 'SIFIR KUYRUK',
         images: [
-          'public/assets/suleymaniye_panorama.jpg',
-          'public/assets/galata_tower_vintage_poster.jpg',
-          'public/assets/suleymaniye_courtyard.jpg'
+          '/assets/suleymaniye_panorama.jpg',
+          '/assets/galata_tower_vintage_poster.jpg',
+          '/assets/suleymaniye_courtyard.jpg'
         ]
       },
       {
@@ -2573,9 +2573,9 @@ class SemtCapitoliumPortal {
         secretDesc: '1600 yıllık mermer sütunlar üzerinde 360° su üstü ışık ve akustik şovuyla sabah sükuneti.',
         saving: 'VIP SÜKUNET',
         images: [
-          'public/assets/basilica_cistern_columns.jpg',
-          'public/assets/basilica_cistern_poster.jpg',
-          'public/assets/sultanahmet_cistern_marble.jpg'
+          '/assets/basilica_cistern_columns.jpg',
+          '/assets/basilica_cistern_poster.jpg',
+          '/assets/sultanahmet_cistern_marble.jpg'
         ]
       },
       {
@@ -2587,9 +2587,9 @@ class SemtCapitoliumPortal {
         secretDesc: 'Güneşlibahçe Sokak ve Karaköy ara hanlarındaki 80 yıllık gerçek esnaf lokantaları.',
         saving: 'GERÇEK LEZZET',
         images: [
-          'public/assets/grand_bazaar_lamps.jpg',
-          'public/assets/grand_bazaar_vintage_poster.jpg',
-          'public/assets/istanbul_gastronomy_ritual.jpg'
+          '/assets/grand_bazaar_lamps.jpg',
+          '/assets/grand_bazaar_vintage_poster.jpg',
+          '/assets/istanbul_gastronomy_ritual.jpg'
         ]
       }
     ];
@@ -2787,9 +2787,9 @@ class SemtCapitoliumPortal {
             <span class="cap-menu-item__sub">Gerçek Esnaf Lezzetleri ve Zaman Kazandıran Yerel Taktikler</span>
           </button>
           <button class="cap-menu-item" data-scroll-to="#pseo-library-section">
-            <span class="cap-menu-item__chap">pSEO KEŞİF KÜTÜPHANESİ</span>
-            <span class="cap-menu-item__title">Otomatik Rota & pSEO Arşivi</span>
-            <span class="cap-menu-item__sub">Google İndeksli 2.400 Mikro Rota ve Detaylı Adımlar</span>
+            <span class="cap-menu-item__chap">05 · KÜRASYON ARŞİVİ</span>
+            <span class="cap-menu-item__title">İstanbul Niş Rota Kütüphanesi</span>
+            <span class="cap-menu-item__sub">Fotoğraf, Sessiz Çalışma, Tarih ve Boğaz Parkurları</span>
           </button>
           <button class="cap-menu-item" data-scroll-to="#bosphorus-atlas-section">
             <span class="cap-menu-item__chap">CANLI HARİTA</span>
@@ -2818,7 +2818,7 @@ class SemtCapitoliumPortal {
       <section class="cap-hero" id="hero-top">
         <!-- Atmospheric Istanbul Twilight Backdrop (Edited & Soft Masked) -->
         <div class="cap-hero__bg-backdrop" aria-hidden="true">
-          <img src="public/assets/istanbul_atmospheric_hero_bg.jpg" alt="" class="cap-hero__bg-img" fetchpriority="high" decoding="async" />
+          <img src="/assets/istanbul_atmospheric_hero_bg.jpg" alt="" class="cap-hero__bg-img" fetchpriority="high" decoding="async" />
           <div class="cap-hero__bg-gradient-overlay"></div>
         </div>
 
@@ -2841,7 +2841,7 @@ class SemtCapitoliumPortal {
             <div class="cap-hero__center-showcase">
               <div class="cap-arch-window" id="hero-arch-window" data-open-route="karakoy-kamondo-sessiz-hanlar" role="button" tabindex="0" title="Karaköy Rotasını Keşfet">
                 <div class="cap-arch-window__inner">
-                  <img src="public/assets/galata_twilight.jpg" alt="İstanbul Galata Alacakaranlık Kemeri" class="cap-arch-window__img" id="hero-dynamic-img" fetchpriority="high" decoding="async" />
+                  <img src="/assets/galata_twilight.jpg" alt="İstanbul Galata Alacakaranlık Kemeri" class="cap-arch-window__img" id="hero-dynamic-img" fetchpriority="high" decoding="async" />
                   <div class="cap-arch-hover-badge">ROTAYI AÇ ↗</div>
                 </div>
               </div>
@@ -2904,7 +2904,7 @@ class SemtCapitoliumPortal {
 
               <div class="cap-slider-content-row" id="slider-content-row" data-open-route="karakoy-kamondo-sessiz-hanlar" role="button" tabindex="0" title="Rotayı İncele">
                 <div class="cap-slider-thumb">
-                  <img src="public/assets/camondo_twilight.jpg" alt="Kamondo Merdivenleri" id="slider-route-img" decoding="async" />
+                  <img src="/assets/camondo_twilight.jpg" alt="Kamondo Merdivenleri" id="slider-route-img" decoding="async" />
                 </div>
                 <div class="cap-slider-card-body">
                   <h3 id="slider-route-title">Karaköy: 1870 Kamondo & Sessiz Han Avluları</h3>
@@ -3036,14 +3036,14 @@ class SemtCapitoliumPortal {
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;">
             <div>
               <div style="font-family:var(--font-tech);font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--cap-gold);text-transform:uppercase;">
-                PROGRAMATİK SEO DİZİNİ · GOOGLE İNDEKSİNE HAZIR 2.400 MİKRO ROTA
+                SEMT KÜRASYON ARŞİVİ · İSTANBUL MİMARİ VE KÜLTÜR ROTALARI
               </div>
               <h2 style="font-family:var(--font-display);font-size:clamp(2.1rem,3.8vw,3.2rem);font-weight:800;letter-spacing:-0.02em;margin:6px 0 0;">
                 İSTANBUL NİŞ ROTA KÜTÜPHANESİ
               </h2>
             </div>
             <span style="font-family:var(--font-tech);font-size:11px;color:var(--text-dark-muted);">
-              SCHEMA.ORG TOURISTTRIP & FAQ YAPILANDIRMASI AKTİF
+              6 ÖZEL EDİTÖRYAL PARKUR · SESLİ REHBERLİ
             </span>
           </div>
 
@@ -3082,9 +3082,9 @@ class SemtCapitoliumPortal {
         <div class="cap-chapter-hero">
           <div class="cap-chapter-hero__arch-frame" data-open-route="karakoy-kamondo-sessiz-hanlar">
             <div class="ambient-image-flow">
-              <img src="public/assets/camondo_twilight.jpg" alt="Kamondo Merdivenleri Alacakaranlık" class="ambient-image-flow__slide is-active" loading="lazy"/>
-              <img src="public/assets/galata_twilight.jpg" alt="Galata Kulesi" class="ambient-image-flow__slide" loading="lazy"/>
-              <img src="public/assets/bankalar_twilight.jpg" alt="Bankalar Caddesi" class="ambient-image-flow__slide" loading="lazy"/>
+              <img src="/assets/camondo_twilight.jpg" alt="Kamondo Merdivenleri Alacakaranlık" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/galata_twilight.jpg" alt="Galata Kulesi" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/bankalar_twilight.jpg" alt="Bankalar Caddesi" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
             </div>
           </div>
           <div class="cap-chapter-hero__copy">
@@ -3103,9 +3103,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">01 · 1348 CENEVİZ MİRASI</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/galata_twilight.jpg" alt="Galata Kulesi" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/galata_tower_vintage_poster.jpg" alt="Galata Afiş" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/galata_bridge_fishermen.jpg" alt="Galata Köprüsü" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/galata_twilight.jpg" alt="Galata Kulesi" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/galata_tower_vintage_poster.jpg" alt="Galata Afiş" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/galata_bridge_fishermen.jpg" alt="Galata Köprüsü" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Galata Kulesi & Surlar</h3>
@@ -3117,9 +3117,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">02 · 1892 ALEXANDRE VALLAURI</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/bankalar_twilight.jpg" alt="SALT Galata" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/camondo_1895.jpg" alt="Camondo Merdivenleri" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/camondo_twilight.jpg" alt="Bankalar Caddesi" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/bankalar_twilight.jpg" alt="SALT Galata" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/camondo_1895.jpg" alt="Camondo Merdivenleri" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/camondo_twilight.jpg" alt="Bankalar Caddesi" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">SALT Galata & Kasa Daireleri</h3>
@@ -3131,9 +3131,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">03 · 1771 GİZLİ AVLU</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/direction_a.jpg" alt="St. Pierre Han" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/palace_interior_vintage_poster.jpg" alt="Tarihi Avlu" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/istanbul_stamp_diorama.jpg" alt="Diorama" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/direction_a.jpg" alt="St. Pierre Han" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/palace_interior_vintage_poster.jpg" alt="Tarihi Avlu" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/istanbul_stamp_diorama.jpg" alt="Diorama" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">St. Pierre Han & Közde Kahve</h3>
@@ -3166,9 +3166,9 @@ class SemtCapitoliumPortal {
           </div>
           <div class="cap-chapter-hero__arch-frame" data-open-route="balat-altin-saat-fotograf-rotasi">
             <div class="ambient-image-flow">
-              <img src="public/assets/balat_golden_arch.jpg" alt="Fener Balat Altın Saat" class="ambient-image-flow__slide is-active" loading="lazy"/>
-              <img src="public/assets/balat_wooden_houses.jpg" alt="Cumbalı Ahşap Evler" class="ambient-image-flow__slide" loading="lazy"/>
-              <img src="public/assets/balat_vintage_poster.jpg" alt="Balat Nostalji" class="ambient-image-flow__slide" loading="lazy"/>
+              <img src="/assets/balat_golden_arch.jpg" alt="Fener Balat Altın Saat" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/balat_wooden_houses.jpg" alt="Cumbalı Ahşap Evler" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/balat_vintage_poster.jpg" alt="Balat Nostalji" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
             </div>
           </div>
         </div>
@@ -3178,9 +3178,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">01 · 07:30 ALTIN SAAT</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/balat_golden_arch.jpg" alt="Kırmızı Mektep" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/balat_wooden_houses.jpg" alt="Ahşap Evler" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/balat_cat_church.jpg" alt="Fener Sokakları" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/balat_golden_arch.jpg" alt="Kırmızı Mektep" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/balat_wooden_houses.jpg" alt="Ahşap Evler" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/balat_cat_church.jpg" alt="Fener Sokakları" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Kırmızı Mektep & Merdivenli Yokuş</h3>
@@ -3192,9 +3192,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">02 · MS 428 BİZANS MİRASI</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/sultanahmet_cistern_marble.jpg" alt="Şerefiye Sarnıcı" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/basilica_cistern_columns.jpg" alt="Yerebatan Sarnıcı" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/basilica_cistern_poster.jpg" alt="Sarnıç İllüstrasyonu" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/sultanahmet_cistern_marble.jpg" alt="Şerefiye Sarnıcı" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/basilica_cistern_columns.jpg" alt="Yerebatan Sarnıcı" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/basilica_cistern_poster.jpg" alt="Sarnıç İllüstrasyonu" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Şerefiye & Yerebatan Sarnıçları</h3>
@@ -3206,9 +3206,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">03 · 1557 MİMAR SİNAN</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/direction_b.jpg" alt="Süleymaniye Terası" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/suleymaniye_panorama.jpg" alt="Haliç Panoraması" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/suleymaniye_courtyard.jpg" alt="Sinan Avlusu" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/direction_b.jpg" alt="Süleymaniye Terası" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/suleymaniye_panorama.jpg" alt="Haliç Panoraması" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/suleymaniye_courtyard.jpg" alt="Sinan Avlusu" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Süleymaniye Gizli Avlu Terası</h3>
@@ -3232,9 +3232,9 @@ class SemtCapitoliumPortal {
         <div class="cap-chapter-hero">
           <div class="cap-chapter-hero__arch-frame" data-open-route="moda-gun-batimi-vapur-turu">
             <div class="ambient-image-flow">
-              <img src="public/assets/moda_bosphorus_ferry.jpg" alt="Moda İskelesi Gün Batımı" class="ambient-image-flow__slide is-active" loading="lazy"/>
-              <img src="public/assets/bosphorus_ferry_poster.jpg" alt="Boğaz Vapuru" class="ambient-image-flow__slide" loading="lazy"/>
-              <img src="public/assets/ferries_golden_horn.jpg" alt="Haliç Vapurları" class="ambient-image-flow__slide" loading="lazy"/>
+              <img src="/assets/moda_bosphorus_ferry.jpg" alt="Moda İskelesi Gün Batımı" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/bosphorus_ferry_poster.jpg" alt="Boğaz Vapuru" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+              <img src="/assets/ferries_golden_horn.jpg" alt="Haliç Vapurları" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
             </div>
           </div>
           <div class="cap-chapter-hero__copy">
@@ -3253,9 +3253,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">01 · 1917 MİMAR VEDAT TEK</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/moda_bosphorus_ferry.jpg" alt="Moda İskelesi" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/haydarpasa_vintage_poster.jpg" alt="Haydarpaşa" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/maidens_tower_poster.jpg" alt="Kız Kulesi" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/moda_bosphorus_ferry.jpg" alt="Moda İskelesi" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/haydarpasa_vintage_poster.jpg" alt="Haydarpaşa" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/maidens_tower_poster.jpg" alt="Kız Kulesi" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Tarihi Moda İskelesi & Kütüphane</h3>
@@ -3267,9 +3267,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">02 · 700 YILLIK BOSTAN</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/direction_c.jpg" alt="Kuzguncuk" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/beylerbeyi_palace_poster.jpg" alt="Beylerbeyi Sarayı" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/ortakoy_mosque_poster.jpg" alt="Ortaköy Sahili" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/direction_c.jpg" alt="Kuzguncuk" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/beylerbeyi_palace_poster.jpg" alt="Beylerbeyi Sarayı" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/ortakoy_mosque_poster.jpg" alt="Ortaköy Sahili" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Kuzguncuk & İcadiye Sokakları</h3>
@@ -3281,9 +3281,9 @@ class SemtCapitoliumPortal {
             <div class="cap-panel-card__tag">03 · ASIRLIK ESNAF RİTÜELİ</div>
             <div class="cap-panel-card__media">
               <div class="ambient-image-flow">
-                <img src="public/assets/istanbul_gastronomy_ritual.jpg" alt="Kadıköy Çarşısı" class="ambient-image-flow__slide is-active" loading="lazy"/>
-                <img src="public/assets/grand_bazaar_lamps.jpg" alt="Kapalıçarşı Lambaları" class="ambient-image-flow__slide" loading="lazy"/>
-                <img src="public/assets/grand_bazaar_vintage_poster.jpg" alt="Tarihi Çarşı" class="ambient-image-flow__slide" loading="lazy"/>
+                <img src="/assets/istanbul_gastronomy_ritual.jpg" alt="Kadıköy Çarşısı" class="ambient-image-flow__slide is-active" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/grand_bazaar_lamps.jpg" alt="Kapalıçarşı Lambaları" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
+                <img src="/assets/grand_bazaar_vintage_poster.jpg" alt="Tarihi Çarşı" class="ambient-image-flow__slide" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src=(this.src.includes('/public/assets/')?this.src.replace('/public/assets/','/assets/'):this.src.replace('/assets/','/public/assets/'));}"/>
               </div>
             </div>
             <h3 class="cap-panel-card__title">Kadıköy Çarşısı & Nişantaşı Avluları</h3>
@@ -4990,9 +4990,9 @@ class SemtCapitoliumPortal {
         document.body.setAttribute('data-atmo', this.atmo);
         document.querySelectorAll('[data-set-atmo]').forEach((b) => b.classList.toggle('active', b === btn));
         const heroImg = document.getElementById('hero-dynamic-img');
-        if (this.atmo === 'golden' && heroImg) heroImg.src = 'public/assets/balat_golden_arch.jpg';
-        if (this.atmo === 'twilight' && heroImg) heroImg.src = 'public/assets/galata_twilight.jpg';
-        if (this.atmo === 'obsidian' && heroImg) heroImg.src = 'public/assets/sultanahmet_cistern_marble.jpg';
+        if (this.atmo === 'golden' && heroImg) heroImg.src = '/assets/balat_golden_arch.jpg';
+        if (this.atmo === 'twilight' && heroImg) heroImg.src = '/assets/galata_twilight.jpg';
+        if (this.atmo === 'obsidian' && heroImg) heroImg.src = '/assets/sultanahmet_cistern_marble.jpg';
         toggleMenu(false);
         this.playChime(587, 0.1);
       });
@@ -5284,7 +5284,7 @@ class SemtCapitoliumPortal {
           title: 'Süleymaniye Arka Terası & Şerefiye Sarnıcı',
           desc: 'Haliç panoraması ve 1600 yıllık yeraltı mermer sütunlarında su üstü ışık gösterisi.',
           district: 'TARİHİ YARIMADA',
-          images: ['public/assets/suleymaniye_courtyard.jpg', 'public/assets/sultanahmet_cistern_marble.jpg', 'public/assets/suleymaniye_panorama.jpg']
+          images: ['/assets/suleymaniye_courtyard.jpg', '/assets/sultanahmet_cistern_marble.jpg', '/assets/suleymaniye_panorama.jpg']
         },
         {
           hour: '11:00',
@@ -5292,7 +5292,7 @@ class SemtCapitoliumPortal {
           title: 'Galata Surları & Kamondo Merdivenleri',
           desc: '1348 Ceneviz taş kuşağı ve Abraham Kamondo’nun 1870 tarihli Art Nouveau sarmal merdiveni.',
           district: 'KARAKÖY · GALATA',
-          images: ['public/assets/camondo_1895.jpg', 'public/assets/camondo_twilight.jpg', 'public/assets/galata_tower_vintage_poster.jpg']
+          images: ['/assets/camondo_1895.jpg', '/assets/camondo_twilight.jpg', '/assets/galata_tower_vintage_poster.jpg']
         },
         {
           hour: '13:30',
@@ -5300,7 +5300,7 @@ class SemtCapitoliumPortal {
           title: 'St. Pierre Han Avlusu & SALT Galata',
           desc: '1771 tarihli taş handa közde kahve molası ve Osmanlı Bankası’nın çelik kasa daireleri.',
           district: 'KARAKÖY · GALATA',
-          images: ['public/assets/direction_a.jpg', 'public/assets/bankalar_twilight.jpg', 'public/assets/palace_interior_vintage_poster.jpg']
+          images: ['/assets/direction_a.jpg', '/assets/bankalar_twilight.jpg', '/assets/palace_interior_vintage_poster.jpg']
         },
         {
           hour: '16:30',
@@ -5308,7 +5308,7 @@ class SemtCapitoliumPortal {
           title: '1.50€ Şehir Hatları Vapuru ile Kıta Geçişi',
           desc: 'Karaköy İskelesi’nden Kadıköy vapuruna binip açık güvertede çayla Boğaz geçişi.',
           district: 'BOĞAZİÇİ',
-          images: ['public/assets/ferries_golden_horn.jpg', 'public/assets/bosphorus_ferry_poster.jpg', 'public/assets/galata_bridge_fishermen.jpg']
+          images: ['/assets/ferries_golden_horn.jpg', '/assets/bosphorus_ferry_poster.jpg', '/assets/galata_bridge_fishermen.jpg']
         },
         {
           hour: '18:15',
@@ -5316,7 +5316,7 @@ class SemtCapitoliumPortal {
           title: 'Tarihi Moda İskelesi’nde Gün Batımı',
           desc: '1917 yapımı taş iskelenin üst kat kütüphanesinden Tarihi Yarımada ardında batan güneş.',
           district: 'MODA · KADIKÖY',
-          images: ['public/assets/moda_bosphorus_ferry.jpg', 'public/assets/haydarpasa_vintage_poster.jpg', 'public/assets/maidens_tower_poster.jpg']
+          images: ['/assets/moda_bosphorus_ferry.jpg', '/assets/haydarpasa_vintage_poster.jpg', '/assets/maidens_tower_poster.jpg']
         }
       ],
       photo: [
@@ -5326,7 +5326,7 @@ class SemtCapitoliumPortal {
           title: 'Fener Rum Lisesi (Kırmızı Mektep) & Sancaktar Yokuşu',
           desc: 'Sabah güneşinin Marsilya tuğlalarını kızıla boyadığı sıfır kalabalıklı altın saat kadrajı.',
           district: 'FENER · BALAT',
-          images: ['public/assets/balat_golden_arch.jpg', 'public/assets/balat_wooden_houses.jpg', 'public/assets/balat_cat_church.jpg']
+          images: ['/assets/balat_golden_arch.jpg', '/assets/balat_wooden_houses.jpg', '/assets/balat_cat_church.jpg']
         },
         {
           hour: '09:00',
@@ -5334,7 +5334,7 @@ class SemtCapitoliumPortal {
           title: 'Merdivenli Yokuş & Cumbalı Ahşap Evler',
           desc: 'Pastel renkli Osmanlı ahşap evlerinin diyagonal sokak kompozisyonu (24mm / 35mm lens).',
           district: 'FENER · BALAT',
-          images: ['public/assets/balat_wooden_houses.jpg', 'public/assets/balat_vintage_poster.jpg', 'public/assets/balat_golden_arch.jpg']
+          images: ['/assets/balat_wooden_houses.jpg', '/assets/balat_vintage_poster.jpg', '/assets/balat_golden_arch.jpg']
         },
         {
           hour: '14:30',
@@ -5342,7 +5342,7 @@ class SemtCapitoliumPortal {
           title: 'Kuzguncuk İcadiye Bostanı & Simitçi Tahir Sokak',
           desc: 'Asya yakasında 700 yıllık bostan ve renkli ahşap köşklerin dingin öğleden sonra ışığı.',
           district: 'KUZGUNCUK',
-          images: ['public/assets/direction_c.jpg', 'public/assets/beylerbeyi_palace_poster.jpg', 'public/assets/ortakoy_mosque_poster.jpg']
+          images: ['/assets/direction_c.jpg', '/assets/beylerbeyi_palace_poster.jpg', '/assets/ortakoy_mosque_poster.jpg']
         },
         {
           hour: '17:45',
@@ -5350,7 +5350,7 @@ class SemtCapitoliumPortal {
           title: 'Kamondo Merdivenleri Alacakaranlık Çekimi',
           desc: 'Sarı sokak lambaları yandığında 1895 tarihi perspektifinden derinlikli portre karesi.',
           district: 'KARAKÖY · GALATA',
-          images: ['public/assets/camondo_twilight.jpg', 'public/assets/galata_twilight.jpg', 'public/assets/bankalar_twilight.jpg']
+          images: ['/assets/camondo_twilight.jpg', '/assets/galata_twilight.jpg', '/assets/bankalar_twilight.jpg']
         }
       ],
       food: [
@@ -5360,7 +5360,7 @@ class SemtCapitoliumPortal {
           title: 'Balat Tarihi Taş Fırın & St. Pierre Han Közde Kahve',
           desc: 'Odun ateşinde pişmiş sıcak simit ve bakır cezvede kumda demlenen Türk kahvesi.',
           district: 'BALAT & GALATA',
-          images: ['public/assets/istanbul_gastronomy_ritual.jpg', 'public/assets/direction_a.jpg', 'public/assets/grand_bazaar_lamps.jpg']
+          images: ['/assets/istanbul_gastronomy_ritual.jpg', '/assets/direction_a.jpg', '/assets/grand_bazaar_lamps.jpg']
         },
         {
           hour: '12:30',
@@ -5368,7 +5368,7 @@ class SemtCapitoliumPortal {
           title: 'Karaköy Tarihi Esnaf Lokantası & Baklava Ritüeli',
           desc: '1843’ten gelen ustalıkla çıtır fıstıklı baklava tadımı ve ince belli bardakta çay.',
           district: 'KARAKÖY',
-          images: ['public/assets/istanbul_gastronomy_ritual.jpg', 'public/assets/grand_bazaar_vintage_poster.jpg', 'public/assets/direction_b.jpg']
+          images: ['/assets/istanbul_gastronomy_ritual.jpg', '/assets/grand_bazaar_vintage_poster.jpg', '/assets/direction_b.jpg']
         },
         {
           hour: '16:00',
@@ -5376,7 +5376,7 @@ class SemtCapitoliumPortal {
           title: 'Karaköy → Kadıköy Vapur Güvertesinde Çay & Simit',
           desc: 'Martılar eşliğinde kıta değiştirirken İstanbul’un en ikonik deniz üstü ritüeli.',
           district: 'BOĞAZİÇİ',
-          images: ['public/assets/bosphorus_ferry_poster.jpg', 'public/assets/ferries_golden_horn.jpg', 'public/assets/moda_bosphorus_ferry.jpg']
+          images: ['/assets/bosphorus_ferry_poster.jpg', '/assets/ferries_golden_horn.jpg', '/assets/moda_bosphorus_ferry.jpg']
         },
         {
           hour: '18:00',
@@ -5384,7 +5384,7 @@ class SemtCapitoliumPortal {
           title: 'Kadıköy Tarihi Çarşı & Moda Kahvecileri',
           desc: 'Güneşlibahçe Sokak’ta asırlık çarşı esnafı ve Moda’nın butik kahve kavurmacıları.',
           district: 'MODA · KADIKÖY',
-          images: ['public/assets/istanbul_gastronomy_ritual.jpg', 'public/assets/moda_bosphorus_ferry.jpg', 'public/assets/istanbul_ticket_pass.jpg']
+          images: ['/assets/istanbul_gastronomy_ritual.jpg', '/assets/moda_bosphorus_ferry.jpg', '/assets/istanbul_ticket_pass.jpg']
         }
       ],
       night: [
@@ -5394,7 +5394,7 @@ class SemtCapitoliumPortal {
           title: 'Bankalar Caddesi & SALT Galata Alacakaranlık',
           desc: 'Neoklasik taş cephelerin kehribar sokak aydınlatmalarıyla sinematik bir dekora dönüşümü.',
           district: 'KARAKÖY · GALATA',
-          images: ['public/assets/bankalar_twilight.jpg', 'public/assets/camondo_twilight.jpg', 'public/assets/galata_twilight.jpg']
+          images: ['/assets/bankalar_twilight.jpg', '/assets/camondo_twilight.jpg', '/assets/galata_twilight.jpg']
         },
         {
           hour: '19:30',
@@ -5402,7 +5402,7 @@ class SemtCapitoliumPortal {
           title: 'Yerebatan & Şerefiye Sarnıcı Gece Seansı',
           desc: 'Karanlık su aynasında yükselen mermer sütunlar ve Medusa başlarının gece akustiği.',
           district: 'TARİHİ YARIMADA',
-          images: ['public/assets/basilica_cistern_columns.jpg', 'public/assets/sultanahmet_cistern_marble.jpg', 'public/assets/basilica_cistern_poster.jpg']
+          images: ['/assets/basilica_cistern_columns.jpg', '/assets/sultanahmet_cistern_marble.jpg', '/assets/basilica_cistern_poster.jpg']
         },
         {
           hour: '21:15',
@@ -5410,7 +5410,7 @@ class SemtCapitoliumPortal {
           title: 'Galata & Haliç Gizli Han Çatı Terasları',
           desc: 'Süleymaniye ve Galata Kulesi’nin aydınlatılmış silüetine karşı gece kahvesi.',
           district: 'GALATA',
-          images: ['public/assets/suleymaniye_panorama.jpg', 'public/assets/galata_tower_vintage_poster.jpg', 'public/assets/galata_twilight.jpg']
+          images: ['/assets/suleymaniye_panorama.jpg', '/assets/galata_tower_vintage_poster.jpg', '/assets/galata_twilight.jpg']
         }
       ]
     };
