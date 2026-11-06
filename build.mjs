@@ -76,6 +76,28 @@ console.log('✨ src/bundle.js successfully built! (' + bundle.length + ' bytes)
 const indexPath = path.join(__dirname, 'index.html');
 let indexHtml = fs.readFileSync(indexPath, 'utf-8');
 
+// Read capitoliumWeb.css and copy to root & public/styles for static serving
+const cssPath = path.join(__dirname, 'src/styles/capitoliumWeb.css');
+const cssContent = fs.readFileSync(cssPath, 'utf-8');
+
+fs.writeFileSync(path.join(__dirname, 'capitoliumWeb.css'), cssContent, 'utf-8');
+const publicStylesDir = path.join(__dirname, 'public/styles');
+if (!fs.existsSync(publicStylesDir)) {
+  fs.mkdirSync(publicStylesDir, { recursive: true });
+}
+fs.writeFileSync(path.join(publicStylesDir, 'capitoliumWeb.css'), cssContent, 'utf-8');
+
+// Inline CSS into index.html to guarantee 100% fail-proof rendering with 0 network roundtrips
+const cssMarkerStart = '/* CAPITOLIUM_PORTAL_CSS_START */';
+const cssMarkerEnd = '/* CAPITOLIUM_PORTAL_CSS_END */';
+const cssStartIdx = indexHtml.indexOf(cssMarkerStart);
+const cssEndIdx = indexHtml.indexOf(cssMarkerEnd);
+
+if (cssStartIdx !== -1 && cssEndIdx !== -1) {
+  indexHtml = indexHtml.substring(0, cssStartIdx + cssMarkerStart.length) + '\n' + cssContent + '\n' + indexHtml.substring(cssEndIdx);
+  console.log('✨ index.html inlined CSS styles successfully synchronized!');
+}
+
 const marker = '// SEMT v2.0 — Luxury Architectural 3D Map Engine';
 const markerIdx = indexHtml.indexOf(marker);
 
@@ -122,4 +144,5 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('✨ index.html inlined scripts successfully synchronized!');
   }
 }
+
 
