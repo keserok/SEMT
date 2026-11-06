@@ -2221,6 +2221,11 @@ class SemtCapitoliumPortal {
     this.bgTimer = null;
     this.heroSliderPaused = false;
 
+    // Interactive Route Matcher Engine State
+    this.matcherMood = 'photo';
+    this.matcherTime = 'short';
+    this.matcherPace = 'hills';
+
     // Theme Engine (Dark: Midnight Obsidian, Light: Carrara Marble)
     this.currentTheme = typeof localStorage !== 'undefined' ? (localStorage.getItem('semt_portal_theme') || 'dark') : 'dark';
 
@@ -2644,6 +2649,7 @@ class SemtCapitoliumPortal {
     this.renderProgramme();
     this.startHeroSlider();
     this.renderPseoGrid();
+    this.bindRouteMatcher();
 
     // Deep URL linking for pSEO landing pages (e.g. ?route=slug)
     this.checkUrlParams();
@@ -2956,6 +2962,73 @@ class SemtCapitoliumPortal {
           </div>
         </div>
       </div>
+
+      <!-- 4. INTERACTIVE ROUTE MATCHER STUDIO (HIGH-ENGAGEMENT HOOK) -->
+      <section class="cap-matcher-section" id="cap-route-matcher-section">
+        <div class="cap-matcher-card">
+          <div class="cap-matcher-header">
+            <div>
+              <div class="cap-live-pulse-badge">
+                <span class="pulse-dot-beacon"></span>
+                <span>CANLI KEŞİF RADARI · İSTANBUL</span>
+              </div>
+              <h2 class="cap-matcher-title">Bugün Senin İçin En Doğru Rota Hangisi?</h2>
+              <p style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-dark-secondary);margin:4px 0 0;">
+                3 editoryal tercihe göre günün ideal saatini, atmosferini ve yürüyüş ritmini eşleştirin.
+              </p>
+            </div>
+            <div style="font-family:var(--font-tech);font-size:0.75rem;color:var(--cap-gold);letter-spacing:0.12em;">
+              STÜDYO KÜRATÖRLÜĞÜ · 6 EDİTORYAL ROTA
+            </div>
+          </div>
+
+          <div class="cap-matcher-steps-grid">
+            <!-- Step 1: Vibe / Mood -->
+            <div class="cap-matcher-step">
+              <span class="cap-matcher-step-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                1. RUH HALİN &amp; ODAK
+              </span>
+              <div class="cap-matcher-options" id="matcher-options-mood">
+                <button class="cap-matcher-btn is-selected" data-matcher-mood="photo">📸 Fotoğraf &amp; Sabah Işığı</button>
+                <button class="cap-matcher-btn" data-matcher-mood="coffee">☕ Han Avlusu &amp; Kahve</button>
+                <button class="cap-matcher-btn" data-matcher-mood="bosphorus">🌊 1.50€ Gün Batımı Vapuru</button>
+                <button class="cap-matcher-btn" data-matcher-mood="history">🏛️ Bizans Sarnıçları</button>
+                <button class="cap-matcher-btn" data-matcher-mood="boho">🌿 Bostan &amp; Mahalle Dinginliği</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Time Budget -->
+            <div class="cap-matcher-step">
+              <span class="cap-matcher-step-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                2. ZAMAN BÜTÇEN
+              </span>
+              <div class="cap-matcher-options" id="matcher-options-time">
+                <button class="cap-matcher-btn is-selected" data-matcher-time="short">⚡ 1.5 - 2 Saat (Kompakt)</button>
+                <button class="cap-matcher-btn" data-matcher-time="long">⏳ 3 - 4 Saat (Derin Keşif)</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Pace & Terrain -->
+            <div class="cap-matcher-step">
+              <span class="cap-matcher-step-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 4v16M17 8l-4-4-4 4M7 20l4 4 4-4"/></svg>
+                3. YÜRÜYÜŞ ZEMİNİ &amp; EFOR
+              </span>
+              <div class="cap-matcher-options" id="matcher-options-pace">
+                <button class="cap-matcher-btn is-selected" data-matcher-pace="coastal">🚶 Düz Ayak Sahil Aksı</button>
+                <button class="cap-matcher-btn" data-matcher-pace="hills">🧗 Merdivenli Yokuş &amp; Taş</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Result Box -->
+          <div class="cap-matcher-result" id="cap-matcher-result-box">
+            <!-- Dynamically populated by renderMatcherResult() -->
+          </div>
+        </div>
+      </section>
 
       <!-- 5. PRODUCTION PROGRAMMATIC SEO (pSEO) LIBRARY & CRAWLABLE SITEMAP SECTION -->
       <section class="cap-pseo-section" id="pseo-library-section">
@@ -3761,9 +3834,27 @@ class SemtCapitoliumPortal {
         <!-- Left: Stops Timeline -->
         <div class="cap-stage-left">
           <div>
-            <div class="cap-stage-section-tag">MİMARİ ROTA & KADRAJ REHBERİ</div>
+            <div class="cap-stage-section-tag">MİMARİ ROTA &amp; KADRAJ REHBERİ</div>
             <h2 class="cap-stage-section-title">Adım Adım Duraklar ve Mekansal İpuçları</h2>
           </div>
+
+          <!-- Gezgin Keşif Pasaportu & Canlı Durak Takibi -->
+          <div class="cap-passport-hud" id="stage-passport-hud">
+            <div>
+              <div style="font-family:var(--font-tech);font-size:0.72rem;color:var(--cap-gold);letter-spacing:0.12em;font-weight:700;">
+                ✦ GEZGİN SAHA PASAPORTU · DURAK TAKİBİ
+              </div>
+              <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-top:2px;" id="passport-status-text">
+                0 / ${r.stops.length} Durak Tamamlandı (%0)
+              </div>
+            </div>
+            <div class="cap-passport-progress-wrap">
+              <div class="cap-passport-progress-track">
+                <div class="cap-passport-progress-fill" id="passport-progress-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="passport-congrats-container"></div>
 
           <div style="display:flex;flex-direction:column;gap:2rem;">
             ${r.stops.map((st, idx) => {
@@ -3810,6 +3901,10 @@ class SemtCapitoliumPortal {
                     <button class="cap-stop-btn" data-focus-stop="${idx}">
                       <span>HARİTADA İŞARETLE ↗</span>
                     </button>
+                    <button class="cap-stop-check-btn" data-toggle-visited="${idx}">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span class="visited-label">ZİYARET ETTİM</span>
+                    </button>
                   </div>
                 </article>
               `;
@@ -3831,6 +3926,27 @@ class SemtCapitoliumPortal {
               </div>
             </div>
           ` : ''}
+
+          <!-- Topluluk & Gezgin Canlı Saha Notları -->
+          <div class="cap-community-notes-wrap">
+            <div class="cap-stage-section-tag">TOPLULUK VE SAHA KEŞİFLERİ</div>
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:#f8fafc;margin:0 0 0.5rem;">Gezgin Notları &amp; Canlı İpuçları</h3>
+            <p style="font-family:var(--font-body);font-size:0.92rem;color:#94a3b8;margin-bottom:1.5rem;">
+              Bu rotada yeni keşfettiğiniz bir detay, gizli kahveci veya fotoğraf kadrajı var mı? Diğer gezginlerle paylaşın.
+            </p>
+
+            <div class="cap-community-input-box">
+              <textarea id="community-note-input" placeholder="Örn: İkinci duraktan sonra hanın sol üst katındaki çay ocağı açık, manzara harika..." maxlength="280"></textarea>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+                <span style="font-family:var(--font-tech);font-size:0.72rem;color:#94a3b8;">Küratör Onaylı Saha Ağı</span>
+                <button class="btn-cap btn-cap--gold-solid" id="btn-submit-community-note" style="height:32px;padding:0 1rem;font-size:0.75rem;">
+                  <span class="btn-cap__inner">NOTU YAYINLA +</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="cap-community-stream" id="community-notes-stream"></div>
+          </div>
         </div>
 
         <!-- Right: Spatial Companion & Interactive Route Map Canvas (Minimalist Curatorial Layout) -->
@@ -4034,6 +4150,241 @@ class SemtCapitoliumPortal {
         this.focusStopOnCanvasAndScroll(idx, r);
       };
     });
+
+    // Bind Passport Checkbox toggles
+    const updatePassportUI = () => {
+      const visited = this.getVisitedStops(r.slug);
+      const total = r.stops.length;
+      const pct = Math.round((visited.length / total) * 100);
+
+      const bar = document.getElementById('passport-progress-bar');
+      if (bar) bar.style.width = `${pct}%`;
+
+      const text = document.getElementById('passport-status-text');
+      if (text) text.textContent = `${visited.length} / ${total} Durak Tamamlandı (%${pct})`;
+
+      container.querySelectorAll('[data-toggle-visited]').forEach((btn) => {
+        const idx = parseInt(btn.getAttribute('data-toggle-visited'), 10);
+        const isDone = visited.includes(idx);
+        btn.classList.toggle('is-checked', isDone);
+        const lbl = btn.querySelector('.visited-label');
+        if (lbl) lbl.textContent = isDone ? 'ZİYARET EDİLDİ ✓' : 'ZİYARET ETTİM';
+      });
+
+      const congrats = document.getElementById('passport-congrats-container');
+      if (congrats) {
+        if (visited.length === total && total > 0) {
+          congrats.innerHTML = `
+            <div class="cap-passport-congrats-modal">
+              <div>
+                <strong style="display:block;font-size:0.95rem;font-family:var(--font-display);">✦ TEBRİKLER! ${r.title} ROTASINI TAMAMLADINIZ</strong>
+                <span style="font-size:0.82rem;opacity:0.9;">Saha Pasaportunuza İstanbul Keşif Rozeti eklendi.</span>
+              </div>
+              <button class="cap-menu-pill-btn" id="btn-share-achievement">ROZETİ PAYLAŞ ↗</button>
+            </div>
+          `;
+          congrats.querySelector('#btn-share-achievement')?.addEventListener('click', () => {
+            document.getElementById('btn-stage-share')?.click();
+          });
+        } else {
+          congrats.innerHTML = '';
+        }
+      }
+    };
+
+    container.querySelectorAll('[data-toggle-visited]').forEach((btn) => {
+      btn.onclick = () => {
+        const idx = parseInt(btn.getAttribute('data-toggle-visited'), 10);
+        this.toggleVisitedStop(r.slug, idx);
+        updatePassportUI();
+      };
+    });
+    updatePassportUI();
+
+    // Community Field Notes stream
+    const renderCommunityNotes = () => {
+      const stream = document.getElementById('community-notes-stream');
+      if (!stream) return;
+
+      let customNotes = [];
+      try {
+        customNotes = JSON.parse(localStorage.getItem(`semt_notes_${r.slug}`) || '[]');
+      } catch (_) {}
+
+      const defaultCuratedNotes = [
+        { author: 'Küratör Notu', text: `${r.bestHour} saatinde binaların vuran ışık açısı fotoğraf kadrajı için en sakin andır.` },
+        { author: 'Gezgin · Arda T.', text: `İkinci durak sonrasında hanın avlusunda közde kahve içmeyi unutmayın, çok dingin bir atmosfer var.` }
+      ];
+
+      const allNotes = [...customNotes, ...defaultCuratedNotes];
+      stream.innerHTML = allNotes.map((n) => `
+        <div class="cap-community-note-item">
+          <strong style="color:var(--cap-gold);display:block;font-size:0.75rem;margin-bottom:3px;font-family:var(--font-tech);">${n.author.toUpperCase()}</strong>
+          <span>${n.text}</span>
+        </div>
+      `).join('');
+    };
+
+    renderCommunityNotes();
+
+    const submitBtn = document.getElementById('btn-submit-community-note');
+    const inputField = document.getElementById('community-note-input');
+    if (submitBtn && inputField) {
+      submitBtn.onclick = () => {
+        const val = inputField.value.trim();
+        if (!val) return;
+        try {
+          const existing = JSON.parse(localStorage.getItem(`semt_notes_${r.slug}`) || '[]');
+          existing.unshift({ author: 'Gezgin (Siz)', text: val });
+          localStorage.setItem(`semt_notes_${r.slug}`, JSON.stringify(existing));
+          inputField.value = '';
+          this.playChime(680, 0.08);
+          renderCommunityNotes();
+          if (this.analytics) {
+            this.analytics.track('community_note_submit', { route_slug: r.slug });
+          }
+        } catch (_) {}
+      };
+    }
+  }
+
+  // Interactive Route Matcher Studio Engine
+  bindRouteMatcher() {
+    const section = document.getElementById('cap-route-matcher-section');
+    if (!section) return;
+
+    // Mood buttons
+    section.querySelectorAll('[data-matcher-mood]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.matcherMood = btn.getAttribute('data-matcher-mood');
+        section.querySelectorAll('[data-matcher-mood]').forEach((b) => b.classList.toggle('is-selected', b === btn));
+        this.playChime(540, 0.06);
+        this.renderMatcherResult();
+      });
+    });
+
+    // Time buttons
+    section.querySelectorAll('[data-matcher-time]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.matcherTime = btn.getAttribute('data-matcher-time');
+        section.querySelectorAll('[data-matcher-time]').forEach((b) => b.classList.toggle('is-selected', b === btn));
+        this.playChime(580, 0.06);
+        this.renderMatcherResult();
+      });
+    });
+
+    // Pace buttons
+    section.querySelectorAll('[data-matcher-pace]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.matcherPace = btn.getAttribute('data-matcher-pace');
+        section.querySelectorAll('[data-matcher-pace]').forEach((b) => b.classList.toggle('is-selected', b === btn));
+        this.playChime(620, 0.06);
+        this.renderMatcherResult();
+      });
+    });
+
+    this.renderMatcherResult();
+  }
+
+  computeRouteMatch(mood, time, pace) {
+    let matchedSlug = 'karakoy-kamondo-sessiz-hanlar';
+    let matchPct = 98;
+
+    if (mood === 'photo') {
+      matchedSlug = 'balat-altin-saat-fotograf-rotasi';
+      matchPct = 99;
+    } else if (mood === 'bosphorus') {
+      matchedSlug = 'moda-gun-batimi-vapur-turu';
+      matchPct = 98;
+    } else if (mood === 'history') {
+      matchedSlug = 'sultanahmet-bizans-sarniclari-rotasi';
+      matchPct = 97;
+    } else if (mood === 'boho') {
+      matchedSlug = 'kuzguncuk-bostan-cicekli-sokaklar';
+      matchPct = 96;
+    } else if (mood === 'coffee') {
+      matchedSlug = pace === 'hills' ? 'karakoy-kamondo-sessiz-hanlar' : 'nisantasi-art-nouveau-apartmanlar';
+      matchPct = 98;
+    }
+
+    const r = this.pseoRoutes.find((x) => x.slug === matchedSlug) || this.pseoRoutes[0];
+    return { route: r, pct: matchPct };
+  }
+
+  renderMatcherResult() {
+    const box = document.getElementById('cap-matcher-result-box');
+    if (!box) return;
+
+    const { route: r, pct } = this.computeRouteMatch(this.matcherMood, this.matcherTime, this.matcherPace);
+
+    box.innerHTML = `
+      <div class="cap-matcher-result-info">
+        <div class="cap-matcher-result-thumb">
+          <img src="${r.image}" alt="${r.title}" />
+        </div>
+        <div>
+          <span class="cap-matcher-match-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            %${pct} KİŞİSEL EŞLEŞME · ${r.district.toUpperCase()}
+          </span>
+          <h3 class="cap-matcher-result-title">${r.title}</h3>
+          <div class="cap-matcher-result-meta">
+            <span>${r.bestHour}</span> · <span>${r.duration}</span> · <span>${r.budget}</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-cap btn-cap--gold-solid" id="btn-matcher-open-route" style="height:40px;padding:0 1.25rem;font-size:0.78rem;">
+          <span class="btn-cap__inner">ROTAYI KEŞFET &amp; BAŞLAT →</span>
+        </button>
+      </div>
+    `;
+
+    document.getElementById('btn-matcher-open-route')?.addEventListener('click', () => {
+      this.openRouteBySlug(r.slug);
+      if (this.analytics) {
+        this.analytics.track('route_matcher_launch', {
+          route_slug: r.slug,
+          mood: this.matcherMood,
+          time: this.matcherTime,
+          pace: this.matcherPace
+        });
+      }
+    });
+  }
+
+  // Traveler's Field Passport state
+  getVisitedStops(slug) {
+    try {
+      const data = localStorage.getItem(`semt_visited_${slug}`);
+      return data ? JSON.parse(data) : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  toggleVisitedStop(slug, stopIdx) {
+    try {
+      let visited = this.getVisitedStops(slug);
+      if (visited.includes(stopIdx)) {
+        visited = visited.filter((x) => x !== stopIdx);
+      } else {
+        visited.push(stopIdx);
+        this.playChime(760, 0.09);
+      }
+      localStorage.setItem(`semt_visited_${slug}`, JSON.stringify(visited));
+      if (this.analytics) {
+        this.analytics.track('stop_visited_toggle', {
+          route_slug: slug,
+          stop_index: stopIdx,
+          is_visited: visited.includes(stopIdx)
+        });
+      }
+      return visited;
+    } catch (_) {
+      return [];
+    }
   }
 
   // Close the Second Screen and return cleanly to portal

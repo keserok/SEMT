@@ -3847,4 +3847,375 @@ body.route-stage-active {
   }
 }
 
+/* ==========================================================================
+   HIGH-ENGAGEMENT INTERACTIVE ENGINES (ui-ux-pro-max standard)
+   1. Interactive Route Matcher Studio
+   2. Traveler's Field Passport & Stop Checklist
+   3. Live Istanbul Field Pulse & Status Badges
+   4. Community Curatorial Field Notes Stream
+   ========================================================================== */
+
+/* 1. Interactive Route Matcher Studio */
+.cap-matcher-section {
+  position: relative;
+  z-index: 4;
+  max-width: 1200px;
+  margin: -3rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.cap-matcher-card {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(195, 166, 119, 0.28);
+  border-radius: 16px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .cap-matcher-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(140, 109, 63, 0.25);
+  box-shadow: 0 20px 48px rgba(140, 109, 63, 0.12);
+}
+
+.cap-matcher-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .cap-matcher-header {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.cap-matcher-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 4px 0 0;
+  color: inherit;
+}
+
+.cap-matcher-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .cap-matcher-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .cap-matcher-section {
+    margin-top: 1rem;
+  }
+}
+
+.cap-matcher-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cap-matcher-step-label {
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cap-gold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cap-matcher-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cap-matcher-btn {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.22s var(--ease-cap-out);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-theme="light"] .cap-matcher-btn {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #334155;
+}
+
+.cap-matcher-btn:hover {
+  background: rgba(195, 166, 119, 0.15);
+  border-color: var(--cap-gold);
+  color: #f8fafc;
+}
+
+[data-theme="light"] .cap-matcher-btn:hover {
+  color: #0f172a;
+}
+
+.cap-matcher-btn.is-selected {
+  background: var(--cap-gold);
+  border-color: var(--cap-gold);
+  color: #05070e;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(195, 166, 119, 0.35);
+}
+
+.cap-matcher-result {
+  background: rgba(195, 166, 119, 0.08);
+  border: 1px solid rgba(195, 166, 119, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .cap-matcher-result {
+  background: rgba(140, 109, 63, 0.08);
+  border-color: rgba(140, 109, 63, 0.3);
+}
+
+.cap-matcher-result-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cap-matcher-result-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(195, 166, 119, 0.4);
+}
+
+.cap-matcher-result-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cap-matcher-match-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #34d399;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.cap-matcher-result-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: inherit;
+  margin: 0 0 4px;
+}
+
+.cap-matcher-result-meta {
+  font-family: var(--font-tech);
+  font-size: 0.76rem;
+  color: #94a3b8;
+}
+
+/* 2. Traveler's Field Passport & Stop Checklist */
+.cap-passport-hud {
+  background: rgba(195, 166, 119, 0.06);
+  border: 1px solid rgba(195, 166, 119, 0.22);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cap-passport-progress-wrap {
+  flex: 1;
+  min-width: 200px;
+}
+
+.cap-passport-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+[data-theme="light"] .cap-passport-progress-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.cap-passport-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c3a677, #fef08a);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+.cap-stop-check-btn {
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(195, 166, 119, 0.35);
+  background: rgba(195, 166, 119, 0.08);
+  color: var(--cap-gold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.cap-stop-check-btn:hover {
+  background: rgba(195, 166, 119, 0.22);
+  border-color: var(--cap-gold);
+}
+
+.cap-stop-check-btn.is-checked {
+  background: #059669;
+  border-color: #34d399;
+  color: #ffffff;
+}
+
+.cap-passport-congrats-modal {
+  padding: 1.25rem;
+  border-radius: 10px;
+  background: rgba(5, 150, 105, 0.15);
+  border: 1px solid #10b981;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.4s ease;
+}
+
+/* 3. Live Istanbul Field Pulse */
+.cap-live-pulse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  color: #34d399;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.pulse-dot-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: beaconPulse 1.8s infinite;
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* 4. Community Curatorial Field Notes */
+.cap-community-notes-wrap {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .cap-community-notes-wrap {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.cap-community-input-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(195, 166, 119, 0.25);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .cap-community-input-box {
+  background: #ffffff;
+  border-color: rgba(140, 109, 63, 0.25);
+}
+
+.cap-community-input-box textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  resize: vertical;
+  min-height: 64px;
+}
+
+.cap-community-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cap-community-note-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--cap-gold);
+  font-size: 0.86rem;
+  color: #cbd5e1;
+}
+
+[data-theme="light"] .cap-community-note-item {
+  background: #f8fafc;
+  color: #334155;
+}
+
+
 
