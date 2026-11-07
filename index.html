@@ -5819,6 +5819,660 @@ body.route-stage-active {
   }
 }
 
+/* ============================================================================
+   SUGGESTION 1: SPATIAL COMPASS & DUAL-NAVIGATION FIELD ENGINE
+   Studio-grade Turn-by-Turn Multi-Waypoint & Smart Map Sheet Styles
+   ============================================================================ */
+
+/* 1. Multi-Waypoint Itinerary Card (Header of timeline) */
+.cap-multi-nav-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(20, 27, 45, 0.82) 0%, rgba(12, 18, 32, 0.9) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 24px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-multi-nav-card:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(245, 158, 11, 0.14);
+}
+
+.cap-multi-nav-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.cap-multi-nav-title-group {
+  flex: 1;
+}
+
+.cap-multi-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fef08a;
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.65rem;
+}
+
+.cap-multi-nav-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.25;
+  margin: 0 0 0.45rem;
+}
+
+.cap-multi-nav-sub {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.cap-multi-nav-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(195, 166, 119, 0.22);
+  white-space: nowrap;
+}
+
+.cap-multi-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cap-nav-launch-btn {
+  height: 44px;
+  padding: 0 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.cap-nav-launch-btn svg {
+  margin-right: 7px;
+  vertical-align: -2px;
+}
+
+.cap-nav-copy-coords-btn {
+  height: 44px;
+  padding: 0 1.2rem;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(195, 166, 119, 0.35);
+  color: #f1f5f9;
+}
+
+/* 2. Transit Micro-badge on Stop Card */
+.cap-stop-transit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+
+.cap-stop-transit-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.6);
+  color: #bae6fd;
+}
+
+/* 3. Live Spatial Proximity Telemetry Badge on Stop Card */
+.cap-stop-proximity-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  margin-bottom: 1.15rem;
+  font-family: var(--font-tech);
+  font-size: 0.76rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+}
+
+.cap-stop-proximity-badge.is-arrived {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.65);
+  color: #fef08a;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.18);
+}
+
+.cap-proximity-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  display: inline-block;
+  box-shadow: 0 0 8px #38bdf8;
+  flex-shrink: 0;
+}
+
+.cap-stop-proximity-badge.is-arrived .cap-proximity-beacon {
+  background: #f59e0b;
+  box-shadow: 0 0 12px #f59e0b;
+  animation: capBeaconPulse 1.6s ease-in-out infinite;
+}
+
+.cap-proximity-icon {
+  color: var(--cap-gold);
+  flex-shrink: 0;
+}
+
+.cap-stop-card.is-near-stop {
+  border-color: rgba(245, 158, 11, 0.85);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(245, 158, 11, 0.22);
+}
+
+/* 4. Per-stop 1-tap Navigation Button */
+.cap-stop-btn--nav {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.45);
+  color: #fef08a;
+}
+
+.cap-stop-btn--nav:hover {
+  background: var(--cap-gold);
+  color: #0b0f19;
+  border-color: var(--cap-gold);
+  transform: translateY(-1px);
+}
+
+/* 5. Smart Map Picker Modal Sheet */
+.cap-nav-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-nav-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.cap-nav-modal-active {
+  overflow: hidden;
+}
+
+.cap-nav-dialog {
+  width: 100%;
+  max-width: 520px;
+  background: #0d1322;
+  border: 1.5px solid rgba(195, 166, 119, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(245, 158, 11, 0.12);
+  padding: 1.75rem 2rem;
+  color: #f8fafc;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-nav-modal.is-active .cap-nav-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.cap-nav-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid rgba(195, 166, 119, 0.16);
+}
+
+.cap-nav-dialog__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cap-gold);
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.35rem;
+}
+
+.cap-nav-dialog__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0 0 0.25rem;
+  line-height: 1.25;
+}
+
+.cap-nav-dialog__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.cap-nav-dialog__close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(195, 166, 119, 0.25);
+  color: #cbd5e1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.cap-nav-dialog__close:hover {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fff;
+  border-color: var(--cap-gold);
+}
+
+.cap-nav-transit-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 0.95rem;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: #bae6fd;
+  font-family: var(--font-tech);
+  font-size: 0.78rem;
+  margin-bottom: 1.25rem;
+}
+
+.cap-nav-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.35rem;
+}
+
+.cap-nav-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0.9rem 1.15rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(195, 166, 119, 0.2);
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 54px;
+}
+
+.cap-nav-option-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--cap-gold);
+  transform: translateY(-1px);
+}
+
+.cap-nav-option-btn:active {
+  transform: scale(0.99);
+}
+
+.cap-nav-option-btn.is-preferred {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.55);
+}
+
+.cap-nav-option-btn.is-preferred:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: var(--cap-gold);
+}
+
+.cap-nav-option-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.cap-nav-option-icon--google {
+  background: rgba(66, 133, 244, 0.18);
+  color: #60a5fa;
+  border: 1px solid rgba(66, 133, 244, 0.35);
+}
+
+.cap-nav-option-icon--apple {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.cap-nav-option-icon--yandex {
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.cap-nav-option-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cap-nav-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.cap-nav-option-name {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.cap-nav-choice-badge {
+  font-family: var(--font-tech);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #0b0f19;
+  background: var(--cap-gold);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.cap-nav-option-desc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: block;
+  line-height: 1.35;
+}
+
+.cap-nav-option-arrow {
+  color: #64748b;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cap-nav-option-btn:hover .cap-nav-option-arrow {
+  color: var(--cap-gold);
+  transform: translateX(3px);
+}
+
+.cap-nav-coords-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.cap-nav-coords-text {
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  color: #94a3b8;
+  min-width: 0;
+}
+
+.cap-nav-coords-text strong {
+  display: block;
+  color: var(--cap-gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.cap-nav-coords-text code {
+  color: #f1f5f9;
+  font-size: 0.82rem;
+  font-family: var(--font-tech);
+}
+
+/* ============================================================================
+   LIGHT MODE (CARRARA MARBLE) ADAPTATIONS FOR NAVIGATION ENGINE
+   WCAG AAA Compliant Contrast
+   ============================================================================ */
+[data-theme="light"] .cap-multi-nav-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
+  border-color: rgba(180, 140, 75, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08), 0 0 20px rgba(245, 158, 11, 0.06);
+}
+
+[data-theme="light"] .cap-multi-nav-card:hover {
+  border-color: rgba(180, 140, 75, 0.7);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 0 25px rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="light"] .cap-multi-nav-heading {
+  color: #0f172a;
+}
+
+[data-theme="light"] .cap-multi-nav-sub {
+  color: #334155;
+}
+
+[data-theme="light"] .cap-multi-nav-pill {
+  background: rgba(180, 140, 75, 0.15);
+  border-color: rgba(180, 140, 75, 0.5);
+  color: #78350f;
+}
+
+[data-theme="light"] .cap-multi-nav-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(180, 140, 75, 0.25);
+}
+
+[data-theme="light"] .cap-nav-copy-coords-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(180, 140, 75, 0.4);
+  color: #1e293b;
+}
+
+[data-theme="light"] .cap-nav-copy-coords-btn:hover {
+  background: rgba(180, 140, 75, 0.15);
+  border-color: #b48c4b;
+  color: #000;
+}
+
+[data-theme="light"] .cap-stop-transit-pill {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.4);
+  color: #0369a1;
+}
+
+[data-theme="light"] .cap-stop-proximity-badge {
+  background: rgba(241, 245, 249, 0.9);
+  border-color: rgba(148, 163, 184, 0.35);
+  color: #334155;
+}
+
+[data-theme="light"] .cap-stop-proximity-badge.is-arrived {
+  background: rgba(254, 243, 199, 0.95);
+  border-color: #d97706;
+  color: #78350f;
+}
+
+[data-theme="light"] .cap-stop-btn--nav {
+  background: rgba(180, 140, 75, 0.14);
+  border-color: rgba(180, 140, 75, 0.55);
+  color: #78350f;
+}
+
+[data-theme="light"] .cap-stop-btn--nav:hover {
+  background: #b48c4b;
+  color: #ffffff;
+  border-color: #b48c4b;
+}
+
+[data-theme="light"] .cap-nav-dialog {
+  background: #ffffff;
+  border-color: rgba(180, 140, 75, 0.45);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  color: #0f172a;
+}
+
+[data-theme="light"] .cap-nav-dialog__title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .cap-nav-dialog__subtitle {
+  color: #475569;
+}
+
+[data-theme="light"] .cap-nav-dialog__close {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(180, 140, 75, 0.35);
+  color: #334155;
+}
+
+[data-theme="light"] .cap-nav-option-btn {
+  background: rgba(248, 250, 252, 0.85);
+  border-color: rgba(180, 140, 75, 0.28);
+}
+
+[data-theme="light"] .cap-nav-option-btn:hover {
+  background: rgba(241, 245, 249, 1);
+  border-color: #b48c4b;
+}
+
+[data-theme="light"] .cap-nav-option-btn.is-preferred {
+  background: rgba(254, 243, 199, 0.45);
+  border-color: rgba(217, 119, 6, 0.6);
+}
+
+[data-theme="light"] .cap-nav-option-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .cap-nav-option-desc {
+  color: #475569;
+}
+
+[data-theme="light"] .cap-nav-coords-card {
+  background: rgba(241, 245, 249, 0.85);
+  border-color: rgba(180, 140, 75, 0.3);
+}
+
+[data-theme="light"] .cap-nav-coords-text code {
+  color: #0f172a;
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVENESS & SAFE AREAS FOR NAVIGATION ENGINE
+   ============================================================================ */
+@media (max-width: 768px) {
+  .cap-multi-nav-card {
+    padding: 1.25rem 1.15rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cap-multi-nav-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .cap-multi-nav-badge {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cap-multi-nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cap-multi-nav-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cap-stop-proximity-badge {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
+  }
+
+  /* Bottom-sheet drawer behavior on mobile */
+  .cap-nav-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .cap-nav-dialog {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 16px));
+    transform: translateY(100%);
+    border-bottom: none;
+  }
+
+  .cap-nav-modal.is-active .cap-nav-dialog {
+    transform: translateY(0);
+  }
+
+  .cap-nav-option-btn {
+    padding: 0.75rem 1rem;
+    min-height: 50px;
+  }
+}
+
 
 
 
@@ -8511,6 +9165,11 @@ class SemtCapitoliumPortal {
     this.matcherTime = 'short';
     this.matcherPace = 'hills';
 
+    // Spatial Proximity & Telemetry Engine State
+    this.proximityWatchId = null;
+    this.lastUserPosition = null;
+    this.arrivedNotifiedStops = {};
+
     // Theme Engine (Dark: Midnight Obsidian, Light: Carrara Marble)
     this.currentTheme = typeof localStorage !== 'undefined' ? (localStorage.getItem('semt_portal_theme') || 'dark') : 'dark';
 
@@ -8686,6 +9345,35 @@ class SemtCapitoliumPortal {
           '/assets/istanbul_compass_screen.jpg'
         ],
         stops: ['Kamondo Merdivenleri', 'SALT Galata Kasa Daireleri', 'St. Pierre Han Taş Avlusu'],
+        stopsData: [
+          {
+            name: 'Kamondo Merdivenleri',
+            lat: 41.02395,
+            lng: 28.97368,
+            transit: 'T1 Karaköy Tramvay (210m)',
+            walkMin: 3,
+            hub: 'Karaköy Meydanı',
+            notes: 'Bankalar Caddesi ile Bereketzade Medresesi Sokağı birleşimi.'
+          },
+          {
+            name: 'SALT Galata Kasa Daireleri',
+            lat: 41.02425,
+            lng: 28.97395,
+            transit: 'M2 Şişhane Metro (280m)',
+            walkMin: 4,
+            hub: 'Şişhane Çıkışı',
+            notes: 'Bankalar Caddesi No:11, eski Osmanlı Bankası binası.'
+          },
+          {
+            name: 'St. Pierre Han Taş Avlusu',
+            lat: 41.02510,
+            lng: 28.97310,
+            transit: 'Karaköy İskelesi (350m)',
+            walkMin: 5,
+            hub: 'Eski Banka Sokak',
+            notes: 'Eski Banka Sokak, Galata sur hattı bitişiği.'
+          }
+        ],
         metaDesc: 'Karaköy’ün en iyi sessiz çalışma mekanları, Kamondo Merdivenleri ve tarihi han avluları saatlik yürüyüş rehberi.',
         faqs: [
           { q: 'SALT Galata kütüphanesine giriş ücretsiz mi?', a: 'Evet, SALT Galata ve yeraltındaki Osmanlı Bankası Müzesi tamamen ücretsizdir.' },
@@ -8712,6 +9400,44 @@ class SemtCapitoliumPortal {
           '/assets/chora_church_historic.jpg'
         ],
         stops: ['Kırmızı Mektep (Fener Rum Lisesi)', 'Sancaktar Yokuşu', 'Merdivenli Yokuş Pastel Evler', 'Tarihi Taş Fırın'],
+        stopsData: [
+          {
+            name: 'Kırmızı Mektep (Fener Rum Lisesi)',
+            lat: 41.03150,
+            lng: 28.94970,
+            transit: 'T5 Fener Tramvayı (140m)',
+            walkMin: 2,
+            hub: 'Fener Sahil',
+            notes: 'Sancaktar Yokuşu tepesi, Haliç panoramik açısı.'
+          },
+          {
+            name: 'Sancaktar Yokuşu',
+            lat: 41.03080,
+            lng: 28.94910,
+            transit: 'Kırmızı Mektep Yanı (80m)',
+            walkMin: 1,
+            hub: 'Sancaktar Aksı',
+            notes: 'Kırmızı tuğla duvarlar ve taş zemin aksı.'
+          },
+          {
+            name: 'Merdivenli Yokuş Pastel Evler',
+            lat: 41.03210,
+            lng: 28.94820,
+            transit: 'T5 Fener Tramvayı (200m)',
+            walkMin: 3,
+            hub: 'Balat Çarşı İçi',
+            notes: 'Renkli cumbalı ahşap yapılar ve taş basamaklar.'
+          },
+          {
+            name: 'Tarihi Taş Fırın',
+            lat: 41.03260,
+            lng: 28.94740,
+            transit: 'Fener Haliç İskelesi (220m)',
+            walkMin: 4,
+            hub: 'Vodina Caddesi',
+            notes: 'Vodina Caddesi, 1800’lerden kalma odun fırını.'
+          }
+        ],
         metaDesc: 'Sabah 07:30 Fener Balat fotoğraf çekim noktaları, lens önerileri ve en sakin yürüyüş rotası.',
         faqs: [
           { q: 'Balat’ta fotoğraf için en iyi saat hangisidir?', a: 'Sabah 07:15 ile 08:45 arası Haliç’ten vuran eğik sabah ışığı en kusursuz açıyı sunar.' },
@@ -8738,6 +9464,44 @@ class SemtCapitoliumPortal {
           '/assets/maidens_tower_poster.jpg'
         ],
         stops: ['Karaköy İskelesi Güverte', 'Kadıköy Balıkçılar Çarşısı', 'Tarihi Moda İskelesi Kütüphanesi', 'Moda Çay Bahçesi'],
+        stopsData: [
+          {
+            name: 'Karaköy İskelesi Güverte',
+            lat: 41.02210,
+            lng: 28.97720,
+            transit: 'T1 Karaköy Tramvayı (80m)',
+            walkMin: 1,
+            hub: 'Karaköy Sahil',
+            notes: 'Şehir Hatları Karaköy ↔ Kadıköy Vapur İskelesi.'
+          },
+          {
+            name: 'Kadıköy Balıkçılar Çarşısı',
+            lat: 40.99040,
+            lng: 29.02550,
+            transit: 'Kadıköy Vapur İskelesi (120m)',
+            walkMin: 2,
+            hub: 'Kadıköy Meydan',
+            notes: 'Güneşli Bahçe Sokak ve Tarihi Çarşı meydanı.'
+          },
+          {
+            name: 'Tarihi Moda İskelesi Kütüphanesi',
+            lat: 40.97850,
+            lng: 29.02480,
+            transit: 'T3 Moda Tramvayı (90m)',
+            walkMin: 2,
+            hub: 'Moda Sahil',
+            notes: 'Moda Burnu, İBB Miras restore deniz kütüphanesi.'
+          },
+          {
+            name: 'Moda Çay Bahçesi',
+            lat: 40.97960,
+            lng: 29.02310,
+            transit: 'Moda Sahil Parkı Yanı (110m)',
+            walkMin: 2,
+            hub: 'Moda Park',
+            notes: 'Park İçi Yolu, Adalar ve gün batımı seyir açısı.'
+          }
+        ],
         metaDesc: '1.50€ vapurla İstanbul Boğazı gün batımı turu, Tarihi Moda İskelesi ve Kadıköy sokak rehberi.',
         faqs: [
           { q: 'Vapurda kredi kartı geçerli mi?', a: 'Evet, İstanbulkart’ın yanı sıra tüm temassız kredi kartları doğrudan turnikede geçerlidir.' },
@@ -8764,6 +9528,35 @@ class SemtCapitoliumPortal {
           '/assets/istanbul_stamp_diorama.jpg'
         ],
         stops: ['Şerefiye Sarnıcı 360° Şov', 'Süleymaniye Arka Avlu Terası', 'Büyük Valide Han Avlusu'],
+        stopsData: [
+          {
+            name: 'Şerefiye Sarnıcı 360° Şov',
+            lat: 41.00840,
+            lng: 28.97230,
+            transit: 'T1 Çemberlitaş (140m)',
+            walkMin: 2,
+            hub: 'Divanyolu Aksı',
+            notes: 'Piyer Loti Caddesi No:2/1, Fatih.'
+          },
+          {
+            name: 'Süleymaniye Arka Avlu Terası',
+            lat: 41.01630,
+            lng: 28.96410,
+            transit: 'M2 Vezneciler (450m)',
+            walkMin: 6,
+            hub: 'Vezneciler Metro',
+            notes: 'Mimar Sinan Caddesi, Haliç ve Boğaz açısı.'
+          },
+          {
+            name: 'Büyük Valide Han Avlusu',
+            lat: 41.01520,
+            lng: 28.96910,
+            transit: 'T1 Beyazıt (320m)',
+            walkMin: 4,
+            hub: 'Mercan Yokuşu',
+            notes: 'Mercan Yokuşu, Çakmakçılar Yokuşu köşesi.'
+          }
+        ],
         metaDesc: 'Sultanahmet ve Süleymaniye gizli seyir terasları, Bizans sarnıçları rehberi ve sıra beklemeden ziyaret taktikleri.',
         faqs: [
           { q: 'Şerefiye Sarnıcı Yerebatan’dan farklı mı?', a: 'MS 428 yapımı Şerefiye Sarnıcı daha sakindir ve her saat başı 360° su üstü projeksiyon gösterisi sunar.' }
@@ -8789,6 +9582,35 @@ class SemtCapitoliumPortal {
           '/assets/pierre_loti_poster.jpg'
         ],
         stops: ['İcadiye Caddesi Renkli Köşkler', '700 Yıllık Kuzguncuk Bostanı', 'Nail Kitabevi & Çınaraltı'],
+        stopsData: [
+          {
+            name: 'İcadiye Caddesi Renkli Köşkler',
+            lat: 41.03620,
+            lng: 29.02880,
+            transit: 'Kuzguncuk İskelesi (150m)',
+            walkMin: 2,
+            hub: 'İcadiye Girişi',
+            notes: 'İcadiye Caddesi boyunca 19. yüzyıl ahşap sivil mimari.'
+          },
+          {
+            name: '700 Yıllık Kuzguncuk Bostanı',
+            lat: 41.03570,
+            lng: 29.03010,
+            transit: 'İcadiye Caddesi 4 dk (280m)',
+            walkMin: 4,
+            hub: 'Bostan Yolu',
+            notes: 'İlya’nın Bostanı, kentsel tarım ve asırlık çınarlar.'
+          },
+          {
+            name: 'Nail Kitabevi & Çınaraltı',
+            lat: 41.03680,
+            lng: 29.02820,
+            transit: '15 Hatları Kuzguncuk Durağı (80m)',
+            walkMin: 1,
+            hub: 'Çınaraltı Meydanı',
+            notes: 'İcadiye Cd. No:32, tarihi köşe bina & kafe.'
+          }
+        ],
         metaDesc: 'Kuzguncuk İcadiye Caddesi, tarihi bostan, ahşap köşkler ve en iyi fotoğraf açıları.',
         faqs: [
           { q: 'Kuzguncuk’a en hızlı nasıl gidilir?', a: 'Beşiktaş veya Eminönü’nden Üsküdar vapuruna binip kıyıdan 12 dakika yürüyebilirsiniz.' }
@@ -8813,6 +9635,35 @@ class SemtCapitoliumPortal {
           '/assets/grand_bazaar_lamps.jpg'
         ],
         stops: ['Teşvikiye Camii Taş Avlusu', 'Maçka Palas Rölyefleri', 'Atiye Sokak Tasarım Pasajları'],
+        stopsData: [
+          {
+            name: 'Teşvikiye Camii Taş Avlusu',
+            lat: 41.05020,
+            lng: 28.99350,
+            transit: 'M2 Osmanbey Metrosu (380m)',
+            walkMin: 5,
+            hub: 'Osmanbey Metro',
+            notes: 'Teşvikiye Caddesi, Sultan Abdülmecid nişan taşları.'
+          },
+          {
+            name: 'Maçka Palas Rölyefleri',
+            lat: 41.04740,
+            lng: 28.99380,
+            transit: 'Maçka Teleferik (200m)',
+            walkMin: 3,
+            hub: 'Maçka Parkı Aksı',
+            notes: 'Maçka Caddesi No:33, Giulio Mongeri Art Nouveau eseri.'
+          },
+          {
+            name: 'Atiye Sokak Tasarım Pasajları',
+            lat: 41.05120,
+            lng: 28.99180,
+            transit: 'Teşvikiye Caddesi Yanı (90m)',
+            walkMin: 2,
+            hub: 'Abdi İpekçi Aksı',
+            notes: 'Yaya aksı, açık hava tasarım kafeleri ve avlular.'
+          }
+        ],
         metaDesc: 'Nişantaşı Art Nouveau apartmanları, Maçka Palas mimari yürüyüş rotası ve tasarım kafeleri.',
         faqs: [
           { q: 'Mimari binaları incelemek için en iyi sokak hangisi?', a: 'Vali Konağı Caddesi ve Hüsrev Gerede Sokak en zengin cephe rölyeflerine sahiptir.' }
@@ -10180,6 +11031,38 @@ class SemtCapitoliumPortal {
             <h2 class="cap-stage-section-title">Adım Adım Duraklar ve Mekansal İpuçları</h2>
           </div>
 
+          <!-- Dual-Navigation Field Engine: Multi-Waypoint Itinerary Card -->
+          <div class="cap-multi-nav-card" id="cap-multi-nav-card">
+            <div class="cap-multi-nav-header">
+              <div class="cap-multi-nav-title-group">
+                <span class="cap-multi-nav-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  KESİNTİSİZ YÜRÜYÜŞ NAVİGASYONU
+                </span>
+                <h3 class="cap-multi-nav-heading">Tüm Rotayı Haritada Aç &amp; Adım Adım Takip Et</h3>
+                <p class="cap-multi-nav-sub">
+                  ${r.stops.length} durak sıralı yürüme güzergahında birleştirildi. Apple Haritalar veya Google Haritalar ile tek dokunuşla canlı navigasyon başlatın.
+                </p>
+              </div>
+              <div class="cap-multi-nav-badge">
+                <strong style="color:var(--cap-gold);font-size:1.15rem;font-family:var(--font-tech);">~${km} KM</strong>
+                <span style="font-size:0.7rem;color:#94a3b8;letter-spacing:0.06em;">${r.stops.length} DURAK BİRLEŞİK</span>
+              </div>
+            </div>
+            <div class="cap-multi-nav-actions">
+              <button class="btn-cap btn-cap--gold-solid cap-nav-launch-btn" id="btn-launch-multi-nav">
+                <span class="btn-cap__inner">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  TAM ROTAYI HARİTADA AÇ (GOOGLE / APPLE) ↗
+                </span>
+              </button>
+              <button class="cap-stop-btn cap-nav-copy-coords-btn" id="btn-copy-route-coords" title="Tüm durak koordinatlarını panoya kopyala">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                <span id="label-copy-route-coords">GPS KOORDİNATLARINI KOPYALA</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Gezgin Keşif Pasaportu & Canlı Durak Takibi -->
           <div class="cap-passport-hud" id="stage-passport-hud">
             <div>
@@ -10202,6 +11085,7 @@ class SemtCapitoliumPortal {
             ${r.stops.map((st, idx) => {
               const stopImg = (r.images && r.images[idx % r.images.length]) || r.image;
               const detail = stopDetails[idx % stopDetails.length];
+              const stData = (r.stopsData && r.stopsData[idx]) || { name: st, lat: 41.0242, lng: 28.9746, transit: 'Merkez', walkMin: 3 };
               return `
                 <article class="cap-stop-card ${idx === 0 ? 'is-active-stop' : ''}" id="stop-card-${idx}" data-stop-index="${idx}">
                   <div class="cap-stop-card__header" role="button" tabindex="0" title="${st} durağını seç">
@@ -10209,10 +11093,22 @@ class SemtCapitoliumPortal {
                       <span class="cap-stop-index-circle">0${idx + 1}</span>
                       <span>DURAK ${idx + 1} / ${r.stops.length}</span>
                     </div>
-                    <span class="cap-stop-walk-time">~${(idx + 1) * 7} dk yürüyüş aksı</span>
+                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                      <span class="cap-stop-transit-pill" title="En yakın toplu taşıma durağı">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+                        <span>${stData.transit}</span>
+                      </span>
+                      <span class="cap-stop-walk-time">~${(idx + 1) * 7} dk yürüyüş aksı</span>
+                    </div>
                   </div>
 
                   <h3 class="cap-stop-card__name" role="button" tabindex="0" title="${st} durağını dinle">${st}</h3>
+
+                  <!-- Live Spatial Proximity Telemetry Badge -->
+                  <div class="cap-stop-proximity-badge" id="stop-proximity-badge-${idx}" data-stop-proximity="${idx}">
+                    <svg class="cap-proximity-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    <span class="cap-proximity-text">En yakın aktarma: ${stData.transit}</span>
+                  </div>
 
                   <div class="cap-stop-card__media" role="button" tabindex="0" title="${st} durağını dinle">
                     <div class="cap-stop-media-blur-bg" style="background-image: url('${stopImg}');"></div>
@@ -10239,6 +11135,10 @@ class SemtCapitoliumPortal {
                   <div class="cap-stop-card__actions">
                     <button class="cap-stop-btn cap-stop-btn--gold" data-listen-stop="${idx}">
                       <span>BU DURAĞI DİNLE ♫</span>
+                    </button>
+                    <button class="cap-stop-btn cap-stop-btn--nav" data-navigate-stop="${idx}" title="${st} durağına navigasyon aç">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                      <span>YOL TARİFİ AL 🧭</span>
                     </button>
                     <button class="cap-stop-btn" data-focus-stop="${idx}">
                       <span>HARİTADA İŞARETLE ↗</span>
@@ -10493,6 +11393,63 @@ class SemtCapitoliumPortal {
       };
     });
 
+    // Multi-Waypoint Full Route Navigation Button
+    document.getElementById('btn-launch-multi-nav')?.addEventListener('click', () => {
+      this.triggerHaptic(15);
+      this.playChime(640, 0.06);
+      this.openMapPickerModal({
+        title: r.title,
+        subtitle: `${r.district} · ${r.stops.length} Durak Kesintisiz Yürüyüş Ağı`,
+        stops: r.stopsData || [],
+        isMulti: true,
+        routeSlug: r.slug
+      });
+    });
+
+    // Copy All GPS Coordinates
+    document.getElementById('btn-copy-route-coords')?.addEventListener('click', async () => {
+      this.triggerHaptic(20);
+      this.playChime(700, 0.05);
+      const stopsData = r.stopsData || [];
+      const text = stopsData.map((s, i) => `${i + 1}. ${s.name}: ${s.lat}, ${s.lng} (Aktarma: ${s.transit})`).join('\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        const lbl = document.getElementById('label-copy-route-coords');
+        if (lbl) {
+          const orig = lbl.textContent;
+          lbl.textContent = 'KOORDİNATLAR KOPYALANDI ✓';
+          lbl.style.color = '#34d399';
+          setTimeout(() => {
+            lbl.textContent = orig;
+            lbl.style.color = '';
+          }, 2200);
+        }
+      } catch (_) {}
+    });
+
+    // Per-Stop 1-Tap Navigation Buttons
+    container.querySelectorAll('[data-navigate-stop]').forEach((btn) => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-navigate-stop'), 10);
+        const stData = (r.stopsData && r.stopsData[idx]) || { name: r.stops[idx], lat: 41.0242, lng: 28.9746, transit: 'Merkez', walkMin: 3 };
+        this.triggerHaptic(15);
+        this.playChime(640, 0.06);
+        this.openMapPickerModal({
+          title: stData.name,
+          subtitle: `${r.district} · Durak 0${idx + 1} / ${r.stops.length} Yürüyüş Navigasyonu`,
+          stops: [stData],
+          isMulti: false,
+          singleStopIndex: 0,
+          transit: stData.transit,
+          routeSlug: r.slug
+        });
+      };
+    });
+
+    // Initialize Live Proximity & Walk-Time Telemetry Engine
+    this.initProximityEngine(r);
+
     // Bind Passport Checkbox toggles
     const updatePassportUI = () => {
       const visited = this.getVisitedStops(r.slug);
@@ -10735,8 +11692,351 @@ class SemtCapitoliumPortal {
     }
   }
 
+  // Haversine formula distance calculation in meters
+  calculateDistanceMeters(lat1, lon1, lat2, lon2) {
+    if (typeof lat1 !== 'number' || typeof lon1 !== 'number' || typeof lat2 !== 'number' || typeof lon2 !== 'number') return 0;
+    const R = 6371e3; // Earth radius in meters
+    const rad = Math.PI / 180;
+    const φ1 = lat1 * rad;
+    const φ2 = lat2 * rad;
+    const Δφ = (lat2 - lat1) * rad;
+    const Δλ = (lon2 - lon1) * rad;
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return Math.round(R * c);
+  }
+
+  // Detect traveler device platform for contextual OS navigation guidance
+  getDetectedPlatform() {
+    const ua = (typeof navigator !== 'undefined' && navigator.userAgent) || '';
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isMac = /Macintosh|Mac OS X/.test(ua) && !isIOS;
+    const isAndroid = /Android/.test(ua);
+    return {
+      isIOS,
+      isMac,
+      isApple: isIOS || isMac,
+      isAndroid,
+      name: isIOS ? 'iOS (iPhone)' : (isAndroid ? 'Android' : (isMac ? 'macOS' : 'Masaüstü / Web'))
+    };
+  }
+
+  // Studio-grade Spatial Proximity Engine with live HTML5 Geolocation telemetry
+  initProximityEngine(r) {
+    if (this.proximityWatchId !== null && typeof navigator !== 'undefined' && 'geolocation' in navigator) {
+      try {
+        navigator.geolocation.clearWatch(this.proximityWatchId);
+      } catch (_) {}
+      this.proximityWatchId = null;
+    }
+
+    const stops = r.stopsData || [];
+    if (!stops.length) return;
+
+    // Initial fallback state (shows closest transit hub)
+    stops.forEach((st, idx) => {
+      const badge = document.getElementById(`stop-proximity-badge-${idx}`);
+      if (badge) {
+        badge.innerHTML = `
+          <svg class="cap-proximity-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span class="cap-proximity-text">En yakın aktarma: ${st.transit}</span>
+        `;
+      }
+    });
+
+    if (typeof navigator === 'undefined' || !('geolocation' in navigator)) {
+      return;
+    }
+
+    const onPos = (position) => {
+      const userLat = position.coords.latitude;
+      const userLng = position.coords.longitude;
+      this.lastUserPosition = { lat: userLat, lng: userLng };
+      this.updateProximityUI(userLat, userLng, r);
+    };
+
+    const onErr = () => {
+      // Gracefully retain transit proximity without intrusive error popups
+      stops.forEach((st, idx) => {
+        const badge = document.getElementById(`stop-proximity-badge-${idx}`);
+        if (badge && !badge.classList.contains('is-arrived')) {
+          badge.innerHTML = `
+            <svg class="cap-proximity-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="cap-proximity-text">Yakın Bağlantı: ${st.transit} · ~${st.walkMin || 3} dk yürüme</span>
+          `;
+        }
+      });
+    };
+
+    try {
+      // Request initial position
+      navigator.geolocation.getCurrentPosition(onPos, onErr, {
+        enableHighAccuracy: true,
+        timeout: 9000,
+        maximumAge: 15000
+      });
+      // Watch for movement as traveler walks along the route
+      this.proximityWatchId = navigator.geolocation.watchPosition(onPos, onErr, {
+        enableHighAccuracy: true,
+        maximumAge: 5000
+      });
+    } catch (_) {}
+  }
+
+  updateProximityUI(userLat, userLng, r) {
+    const stops = r.stopsData || [];
+    let closestIndex = -1;
+    let minDistance = Infinity;
+
+    stops.forEach((st, idx) => {
+      const dist = this.calculateDistanceMeters(userLat, userLng, st.lat, st.lng);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIndex = idx;
+      }
+
+      const badge = document.getElementById(`stop-proximity-badge-${idx}`);
+      const card = document.getElementById(`stop-card-${idx}`);
+      if (!badge) return;
+
+      if (dist <= 55) {
+        // Stop reached threshold (< 55 meters)
+        badge.classList.add('is-arrived');
+        badge.innerHTML = `
+          <span class="cap-beacon-pulse"></span>
+          <span class="cap-proximity-text" style="color:var(--cap-gold-bright);font-weight:700;">✦ DURAĞA ULAŞTINIZ · DİNLENMEYE VE KEŞFE BAŞLAYIN</span>
+        `;
+        if (card) {
+          card.classList.add('is-near-stop');
+        }
+        if (!this.arrivedNotifiedStops) this.arrivedNotifiedStops = {};
+        const notifyKey = `${r.slug}_${idx}`;
+        if (!this.arrivedNotifiedStops[notifyKey]) {
+          this.arrivedNotifiedStops[notifyKey] = true;
+          this.triggerHaptic([40, 60, 40]);
+          this.playChime(880, 0.12);
+        }
+      } else {
+        badge.classList.remove('is-arrived');
+        if (card) card.classList.remove('is-near-stop');
+        const distStr = dist >= 1000 ? `${(dist / 1000).toFixed(1)} km` : `${dist} m`;
+        const walkMin = Math.max(1, Math.round(dist / 80));
+        badge.innerHTML = `
+          <svg class="cap-proximity-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="cap-proximity-text">Konumunuza ~${distStr} · ~${walkMin} dk yürüme (${st.transit})</span>
+        `;
+      }
+    });
+
+    // Update canvas map highlight if closest stop changed
+    if (closestIndex !== -1 && this.currentPlayingStop !== closestIndex) {
+      const label = document.getElementById('route-canvas-active-label');
+      if (label && stops[closestIndex]) {
+        label.textContent = `EN YAKIN DURAK 0${closestIndex + 1}: ${stops[closestIndex].name}`;
+      }
+    }
+  }
+
+  // Studio-grade Smart Map Picker Sheet Modal (Apple Maps / Google Maps / Yandex / GPS)
+  openMapPickerModal({ title, subtitle, stops = [], isMulti = false, singleStopIndex = 0, transit = '', routeSlug = '' }) {
+    let modal = document.getElementById('cap-map-picker-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'cap-map-picker-modal';
+      modal.className = 'cap-nav-modal';
+      document.body.appendChild(modal);
+    }
+
+    const platform = this.getDetectedPlatform();
+    const primaryStop = stops[singleStopIndex] || stops[0] || { name: title, lat: 41.0242, lng: 28.9746 };
+
+    // Google Maps Walking URL
+    let googleMapsUrl = '';
+    if (isMulti && stops.length > 1) {
+      const origin = `${stops[0].lat},${stops[0].lng}`;
+      const dest = `${stops[stops.length - 1].lat},${stops[stops.length - 1].lng}`;
+      const waypoints = stops.slice(1, -1).map((s) => `${s.lat},${s.lng}`).join('|');
+      googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${dest}${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ''}&travelmode=walking`;
+    } else {
+      googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${primaryStop.lat},${primaryStop.lng}&travelmode=walking`;
+    }
+
+    // Apple Maps Walking URL
+    let appleMapsUrl = '';
+    if (isMulti && stops.length > 1) {
+      appleMapsUrl = `https://maps.apple.com/?saddr=${stops[0].lat},${stops[0].lng}&daddr=${stops[stops.length - 1].lat},${stops[stops.length - 1].lng}&dirflg=w`;
+    } else {
+      appleMapsUrl = `https://maps.apple.com/?daddr=${primaryStop.lat},${primaryStop.lng}&dirflg=w`;
+    }
+
+    // Yandex Maps Walking URL
+    let yandexMapsUrl = '';
+    if (isMulti && stops.length > 1) {
+      const pts = stops.map((s) => `${s.lat}%2C${s.lng}`).join('~');
+      yandexMapsUrl = `https://yandex.com.tr/maps/?rtext=${pts}&rtt=pd`;
+    } else {
+      yandexMapsUrl = `https://yandex.com.tr/maps/?rtext=~${primaryStop.lat}%2C${primaryStop.lng}&rtt=pd`;
+    }
+
+    const rawCoordsText = isMulti 
+      ? stops.map((s, i) => `${i + 1}. ${s.name}: ${s.lat}, ${s.lng}`).join('\n')
+      : `${primaryStop.name}: ${primaryStop.lat}, ${primaryStop.lng}`;
+
+    modal.innerHTML = `
+      <div class="cap-nav-dialog" role="dialog" aria-modal="true" aria-label="Harita & Navigasyon Seçimi">
+        <div class="cap-nav-dialog__header">
+          <div>
+            <div class="cap-nav-dialog__tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span>${isMulti ? 'ÇOKLU DURAK YÜRÜYÜŞ GÜZERGAHI' : 'NOKTASAL YOL TARİFİ'}</span>
+            </div>
+            <h3 class="cap-nav-dialog__title">${title}</h3>
+            <p class="cap-nav-dialog__subtitle">${subtitle}</p>
+          </div>
+          <button class="cap-nav-dialog__close" id="btn-close-map-picker" aria-label="Kapat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        ${transit ? `
+          <div class="cap-nav-transit-banner">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cap-gold)" stroke-width="2.2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+            <span><strong>Toplu Taşıma Entegrasyonu:</strong> ${transit}</span>
+          </div>
+        ` : ''}
+
+        <div class="cap-nav-options-list">
+          <!-- Google Maps Option -->
+          <a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="cap-nav-option-btn ${!platform.isApple ? 'is-preferred' : ''}" data-nav-app="google">
+            <div class="cap-nav-option-icon cap-nav-option-icon--google">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="cap-nav-option-body">
+              <div class="cap-nav-option-row">
+                <span class="cap-nav-option-name">Google Haritalar</span>
+                ${!platform.isApple ? '<span class="cap-nav-choice-badge">✦ ÖNERİLEN</span>' : ''}
+              </div>
+              <span class="cap-nav-option-desc">Tüm cihazlar için adım adım yaya yürüyüş rehberi &amp; sokak görünümü</span>
+            </div>
+            <svg class="cap-nav-option-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <!-- Apple Maps Option -->
+          <a href="${appleMapsUrl}" target="_blank" rel="noopener noreferrer" class="cap-nav-option-btn ${platform.isApple ? 'is-preferred' : ''}" data-nav-app="apple">
+            <div class="cap-nav-option-icon cap-nav-option-icon--apple">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </div>
+            <div class="cap-nav-option-body">
+              <div class="cap-nav-option-row">
+                <span class="cap-nav-option-name">Apple Haritalar</span>
+                ${platform.isApple ? '<span class="cap-nav-choice-badge">✦ iOS ÖNERİLEN</span>' : ''}
+              </div>
+              <span class="cap-nav-option-desc">iPhone, Apple Watch ve macOS yerel entegrasyonuyla sessiz rehberlik</span>
+            </div>
+            <svg class="cap-nav-option-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <!-- Yandex Maps Option -->
+          <a href="${yandexMapsUrl}" target="_blank" rel="noopener noreferrer" class="cap-nav-option-btn" data-nav-app="yandex">
+            <div class="cap-nav-option-icon cap-nav-option-icon--yandex">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            </div>
+            <div class="cap-nav-option-body">
+              <div class="cap-nav-option-row">
+                <span class="cap-nav-option-name">Yandex Haritalar</span>
+              </div>
+              <span class="cap-nav-option-desc">İstanbul toplu taşıma, füniküler ve dar sokak yaya ağı uyumlu</span>
+            </div>
+            <svg class="cap-nav-option-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <!-- Copy GPS Coordinates Bar -->
+        <div class="cap-nav-coords-card">
+          <div class="cap-nav-coords-text">
+            <strong>GPS HASSAS KOORDİNAT:</strong>
+            <code>${primaryStop.lat.toFixed(5)}, ${primaryStop.lng.toFixed(5)}</code>
+          </div>
+          <button class="cap-stop-btn" id="btn-modal-copy-coords">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span id="label-modal-copy-coords">KOPYALA</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    modal.classList.add('is-active');
+    document.body.classList.add('cap-nav-modal-active');
+    this.playChime(620, 0.08);
+
+    const closeModal = () => {
+      modal.classList.remove('is-active');
+      document.body.classList.remove('cap-nav-modal-active');
+      this.playChime(420, 0.06);
+    };
+
+    document.getElementById('btn-close-map-picker')?.addEventListener('click', closeModal);
+    modal.onclick = (e) => {
+      if (e.target === modal) closeModal();
+    };
+
+    // Close on Escape
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        window.removeEventListener('keydown', onKey);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+
+    // Track launch clicks and give feedback
+    modal.querySelectorAll('[data-nav-app]').forEach((a) => {
+      a.addEventListener('click', () => {
+        const app = a.getAttribute('data-nav-app');
+        this.triggerHaptic(20);
+        this.playChime(740, 0.08);
+        if (this.analytics) {
+          this.analytics.track('navigation_launch', {
+            app,
+            route_slug: routeSlug,
+            stop_name: primaryStop.name,
+            is_multi: isMulti
+          });
+        }
+        setTimeout(closeModal, 450);
+      });
+    });
+
+    // Copy coords button
+    document.getElementById('btn-modal-copy-coords')?.addEventListener('click', async () => {
+      this.triggerHaptic(15);
+      this.playChime(680, 0.06);
+      try {
+        await navigator.clipboard.writeText(rawCoordsText);
+        const lbl = document.getElementById('label-modal-copy-coords');
+        if (lbl) {
+          lbl.textContent = 'KOPYALANDI ✓';
+          setTimeout(() => { lbl.textContent = 'KOPYALA'; }, 2200);
+        }
+      } catch (_) {}
+    });
+  }
+
   // Close the Second Screen and return cleanly to portal
   closeRouteStage() {
+    if (this.proximityWatchId !== null && typeof navigator !== 'undefined' && 'geolocation' in navigator) {
+      try {
+        navigator.geolocation.clearWatch(this.proximityWatchId);
+      } catch (_) {}
+      this.proximityWatchId = null;
+    }
+    const navModal = document.getElementById('cap-map-picker-modal');
+    if (navModal) {
+      navModal.classList.remove('is-active');
+      document.body.classList.remove('cap-nav-modal-active');
+    }
     const stage = document.getElementById('cap-route-stage');
     if (stage) stage.classList.remove('is-active');
     document.body.classList.remove('route-stage-active');
